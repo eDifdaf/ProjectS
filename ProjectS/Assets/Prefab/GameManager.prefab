@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2210879032323675218}
   - component: {fileID: 6731379093998871430}
   - component: {fileID: 6051227446492229821}
+  - component: {fileID: 1149453028204500971}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2210879032323675218
 MonoBehaviour:
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questManager: {fileID: 6731379093998871430}
   dialogManager: {fileID: 6051227446492229821}
+  dayNightManager: {fileID: 1149453028204500971}
 --- !u!114 &6731379093998871430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b347487da4883b4a9a5ae7d4b4e5c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableQuests: []
-  completedQuests: []
 --- !u!114 &6051227446492229821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,4 +81,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  delay: 0.05
+--- !u!114 &1149453028204500971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696873548956248038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de031276263f5640a23d42cc17cb55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 0}
+  uiImage: {fileID: 0}
+  sun: {fileID: 0}
+  secondsInFullDay: 300
+  currentTimeOfDay: 0.999
+  isPaused: 0
