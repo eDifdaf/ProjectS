@@ -7,7 +7,7 @@ public class NPC : MonoBehaviour
     [SerializeField] public string npcName; 
     [SerializeField] public NPCData npcData;
     [SerializeField] private SpriteRenderer popup;
-    [SerializeField] private LocationQuestPool[] locationQuestPool;
+    [SerializeField] public LocationQuestPool[] locationQuestPool;
     private bool isPlayerInRange;
 
     private void Awake() {

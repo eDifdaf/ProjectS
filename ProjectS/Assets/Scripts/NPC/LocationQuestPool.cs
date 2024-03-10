@@ -4,7 +4,7 @@ using UnityEngine;
 
 [Serializable] public class LocationQuestPool
 {
-    [SerializeField] private List<Quest> quests;
+    public List<Quest> quests;
     public Collider location;
     public NPCData.TimeOfDay timeOfDay;
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    private NPCData npcData;
+    private NPC currNPC;
     [SerializeField] private GameObject player;
     [SerializeField] private Canvas dialogCanvas;
     [SerializeField] private TMP_Text dialogtext;
@@ -15,8 +15,8 @@ public class DialogManager : MonoBehaviour
     public bool IsEnabled => dialogCanvas.enabled;
     public void StartDialog(NPC npc)
     {
-        npcData = npc.npcData;
-        StartCoroutine(ShowText(npcData.greetings[0]));
+        currNPC = npc;
+        StartCoroutine(ShowText(currNPC.npcData.greetings[0]));
         _buttons[0].SetText("Give me a quest");
         _buttons[1].SetText("Tell me about you");
         _buttons[2].SetText("I don't need anything, bye");
@@ -36,17 +36,18 @@ public class DialogManager : MonoBehaviour
     
     public void Button1()
     {
-        GameManager.Instance.QuestManager.AssignQuests(player);
+        GameManager.Instance.QuestManager.AssignQuests(currNPC.locationQuestPool[0].quests[0]);
+        StartCoroutine(ShowText(currNPC.locationQuestPool[0].quests[0].Description));
     }
     
     public void Button2()
     {
-        StartCoroutine(ShowText(npcData.story));
+        StartCoroutine(ShowText(currNPC.npcData.story));
     }
     
     public void Button3()
     {
-        StartCoroutine(Goodbye(npcData.goodbyes[0]));
+        StartCoroutine(Goodbye(currNPC.npcData.goodbyes[0]));
         
     }
     

@@ -1,14 +1,25 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public List<Quest> availableQuests;
-    private List<Quest> completedQuests;
+    private Quest currentQuest;
+    
+    public void AssignQuests(Quest quest) {
+        quest.StartQuest();
+        quest.OnQuestComplete += DebugStuff;
+        quest.OnQuestUpdated += UpdateStuff;
+        currentQuest = quest;
+    }
 
-    public void AssignQuests(GameObject player)
-    {
-        // Hier kannst du Logik hinzufügen, um Quests zufällig aus der Liste der verfügbaren Quests auszuwählen und sie dem NPC zuzuweisen.
-        Debug.Log("hi");
+    private void UpdateStuff() {
+        Debug.Log("Quest Updated");
+    }
+
+    private void DebugStuff() {
+        Debug.Log("Quest Complete");
+        currentQuest.OnQuestComplete -= DebugStuff;
+        currentQuest.OnQuestUpdated -= UpdateStuff;
     }
 }
