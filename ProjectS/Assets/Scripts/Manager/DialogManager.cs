@@ -47,12 +47,14 @@ public class DialogManager : MonoBehaviour
     public void Button3()
     {
         StartCoroutine(Goodbye(npcData.goodbyes[0]));
+        
     }
     
     IEnumerator Goodbye(string fullText) {
         yield return StartCoroutine(ShowText(fullText));
         yield return new WaitForSeconds(2); //maybe set as variable
         HideUI();
+        GameManager.Instance.DayNightManager.ResumeTime();
     }
     IEnumerator ShowText(string fullText)
     {

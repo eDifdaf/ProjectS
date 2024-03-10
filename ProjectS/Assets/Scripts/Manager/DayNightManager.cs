@@ -17,12 +17,24 @@ public class DayNightManager : MonoBehaviour {
     [Range(0, 1)] [SerializeField] private float currentTimeOfDay = 0f;
     private float timeMultiplier = 1f;
     private float sunInitialIntensity;
+    public bool isPaused;
 
     private void Start() {
         sunInitialIntensity = sun.intensity;
     }
     
+    public void PauseTime() {
+        isPaused = true;
+    }
+    
+    public void ResumeTime() {
+        isPaused = false;
+    }
+    
     private void Update() {
+        if (isPaused) {
+            return;
+        }
         UpdateSun();
         currentTimeOfDay += (Time.deltaTime / secondsInFullDay) * timeMultiplier;
         if (currentTimeOfDay >= 1) {

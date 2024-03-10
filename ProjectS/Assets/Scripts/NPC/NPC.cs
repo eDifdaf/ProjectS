@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
@@ -6,19 +7,36 @@ public class NPC : MonoBehaviour
     [SerializeField] public string npcName; 
     [SerializeField] public NPCData npcData;
     [SerializeField] private SpriteRenderer popup;
+    [SerializeField] private LocationQuestPool[] locationQuestPool;
     private bool isPlayerInRange;
 
     private void Awake() {
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
+        this.gameObject.SetActive(false);
     }
 
     private void OnTimeChanged(NPCData.TimeOfDay obj) {
-        //TODO: spawn NPC
-        Debug.Log("Time of day changed to " + obj);
+
+        LocationQuestPool newLocation = null;
+        foreach (var location in locationQuestPool) {
+            if (location.timeOfDay == obj) {
+                newLocation = location;
+            }
+        }
+
+        if (newLocation == null) {
+            this.gameObject.SetActive(false);
+            return;
+        }
+        
+        this.transform.position = newLocation.location.bounds.center;
+        this.gameObject.SetActive(true);
+
+
+
     }
 
     void Update() {
-        
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.DialogManager.IsEnabled == false) {
             GameManager.Instance.SetActiveNPC(this);
         }
@@ -43,7 +61,6 @@ public class NPC : MonoBehaviour
         }
         popup.enabled = false;
         isPlayerInRange = false;
-        GameManager.Instance.DialogManager.HideUI();
         GameManager.Instance.SetActiveNPC(null);
     }
 

@@ -1,14 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[CreateAssetMenu(fileName = "MainQuest", menuName = "ScriptableObjects/Quest/MainQuest", order = 2)]
-public class MainQuest : Quest {
-    public enum QuestType {
-        Good,
-        Neutral,
-        Evil
+public class MainQuest : QuestObjective {
+    public override void OnStart() {
+        throw new System.NotImplementedException();
     }
-    public QuestType questType;
-    public GameObject target;
 }

@@ -34,9 +34,10 @@ public class GameManager : MonoBehaviour
     {
         if(npc == null)
         {
-            dialogManager.HideUI();
+            DayNightManager.ResumeTime();
             return;
         }
+        DayNightManager.PauseTime();
         dialogManager.ShowUI();
         dialogManager.StartDialog(npc);
     }

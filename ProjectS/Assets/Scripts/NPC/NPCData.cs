@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPCData : ScriptableObject {
     [SerializeField] private List<NPC> friends;
     [SerializeField] private List<NPC> enemies;
-    [SerializeField] private List<Quest> quests;
+    
     public string story;
     public List<string> greetings;
     public List<string> goodbyes;
