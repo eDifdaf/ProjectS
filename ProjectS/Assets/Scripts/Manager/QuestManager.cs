@@ -4,7 +4,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public List<Quest> availableQuests;
-    public List<Quest> completedQuests;
+    private List<Quest> completedQuests;
 
     public void AssignQuests(GameObject player)
     {

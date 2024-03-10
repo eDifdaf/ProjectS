@@ -4,10 +4,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] private QuestManager questManager;
-    [SerializeField] private Dialogmanager dialogManager;
+    [SerializeField] private DialogManager dialogManager;
+    [SerializeField] private DayNightManager dayNightManager;
+    
+    public DayNightManager DayNightManager => dayNightManager;
     public QuestManager QuestManager => questManager;
-
-    public Dialogmanager DialogManager => dialogManager;
+    public DialogManager DialogManager => dialogManager;
 
 
     void Awake()

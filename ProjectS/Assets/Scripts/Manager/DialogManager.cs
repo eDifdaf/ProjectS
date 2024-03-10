@@ -4,32 +4,34 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Dialogmanager : MonoBehaviour
+public class DialogManager : MonoBehaviour
 {
     private NPCData npcData;
     [SerializeField] private GameObject player;
     [SerializeField] private Canvas dialogCanvas;
     [SerializeField] private TMP_Text dialogtext;
-    [SerializeField] private List<Button> _buttons;
+    [SerializeField] private List<TMP_Text> _buttons;
     private WaitForSeconds wait = new WaitForSeconds(0.05f);
-    private string currentText = "";
+    public bool IsEnabled => dialogCanvas.enabled;
     public void StartDialog(NPC npc)
     {
         npcData = npc.npcData;
         StartCoroutine(ShowText(npcData.greetings[0]));
-        _buttons[0].GetComponentInChildren<TMP_Text>().SetText("Give me a quest");
-        _buttons[1].GetComponentInChildren<TMP_Text>().SetText("Tell me about you");
-        _buttons[2].GetComponentInChildren<TMP_Text>().SetText("I don't need anything, bye");
+        _buttons[0].SetText("Give me a quest");
+        _buttons[1].SetText("Tell me about you");
+        _buttons[2].SetText("I don't need anything, bye");
     }
     
     public void HideUI()
     {
         dialogCanvas.enabled = false;
+        player.GetComponent<basicmovementscript>().enabled = true;
     }
     
     public void ShowUI()
     {
         dialogCanvas.enabled = true;
+        player.GetComponent<basicmovementscript>().enabled = false;
     }
     
     public void Button1()
