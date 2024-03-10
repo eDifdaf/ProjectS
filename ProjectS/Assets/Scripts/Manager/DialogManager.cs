@@ -25,13 +25,13 @@ public class DialogManager : MonoBehaviour
     public void HideUI()
     {
         dialogCanvas.enabled = false;
-        player.GetComponent<basicmovementscript>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
     }
     
     public void ShowUI()
     {
         dialogCanvas.enabled = true;
-        player.GetComponent<basicmovementscript>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
     }
     
     public void Button1()
