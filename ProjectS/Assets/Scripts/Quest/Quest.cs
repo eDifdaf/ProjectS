@@ -6,7 +6,6 @@ using UnityEngine;
     [SerializeField] int id;
     public string Title;
     public string Description;
-    [SerializeField] Collider targetLocation;
     [SerializeField] QuestObjective[] objectives;
     [SerializeField] NPC questGiver;
 
