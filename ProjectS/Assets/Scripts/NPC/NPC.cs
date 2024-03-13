@@ -31,9 +31,6 @@ public class NPC : MonoBehaviour
         
         this.transform.position = newLocation.location.bounds.center;
         this.gameObject.SetActive(true);
-
-
-
     }
 
     void Update() {
