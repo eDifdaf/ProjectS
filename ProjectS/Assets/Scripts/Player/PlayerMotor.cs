@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
-    private CharacterController controller;
+    [SerializeField] private CharacterController controller;
     private Vector3 curentVelocity;
     public float speed = 5f;
 
-    private void Awake()
-    {
-        controller = GetComponent<CharacterController>();
-    }
+
 
     public void Moving(Vector2 input)
     {

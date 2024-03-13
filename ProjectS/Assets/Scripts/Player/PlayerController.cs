@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInputActions playerInputActions;
     private InputAction drive;
-    private PlayerMotor playerMotor;
+    [SerializeField] private PlayerMotor playerMotor;
 
 
 
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         //Get your GameKomponents
         
-        playerMotor = GetComponent<PlayerMotor>();
+
 
         //set your Evets
 
