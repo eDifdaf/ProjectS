@@ -14,6 +14,7 @@ public class DayNightManager : MonoBehaviour {
     
     [SerializeField] private Light sun;
     [SerializeField] private float secondsInFullDay = 300f;
+    [SerializeField] private float gracePeriod = 0.02f;
     [Range(0, 1)] [SerializeField] private float currentTimeOfDay = 0f;
     private float timeMultiplier = 1f;
     private float sunInitialIntensity;
@@ -74,19 +75,25 @@ public class DayNightManager : MonoBehaviour {
     }
 
     private void UpdateSun() {
-        sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f) - 90, 170, 0);
-        float intensityMultiplier = 1;
-        if (currentTimeOfDay <= 0.23f || currentTimeOfDay >= 0.75f) {
-            intensityMultiplier = 0;
+        sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f), 0, 0);
+        //TODO: Refactor this to use ROTATION instead of CurrentTimeOfDay
+        if (currentTimeOfDay >= 0.2f + gracePeriod && currentTimeOfDay <= 0.4f) {
+            sun.intensity = sunInitialIntensity;
         }
-        else if (currentTimeOfDay <= 0.25f) {
-            intensityMultiplier = Mathf.Clamp01((currentTimeOfDay - 0.23f) * (1 / 0.02f));
+        else if (currentTimeOfDay >= 0.0f && currentTimeOfDay <= 0.2f + gracePeriod) {
+            float smoothStep = (currentTimeOfDay - gracePeriod) * (currentTimeOfDay - gracePeriod) * (3 - 2 * (currentTimeOfDay - gracePeriod));
+            sun.intensity = Mathf.Lerp(0, sunInitialIntensity, smoothStep);
         }
-        else if (currentTimeOfDay >= 0.73f) {
-            intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
+        else if (currentTimeOfDay >= 0.4f && currentTimeOfDay <= 0.6f) {
+            sun.intensity = Mathf.Lerp(sunInitialIntensity, 0, (currentTimeOfDay - 0.4f) * 5);
         }
-
-        sun.intensity = sunInitialIntensity * intensityMultiplier;
+        else if (currentTimeOfDay >= 0.6f && currentTimeOfDay <= 0.8f) {
+            sun.intensity = 0;
+        }
+        else if (currentTimeOfDay >= 0.8f + gracePeriod && currentTimeOfDay <= 1.0f) {
+            float smoothStep = (currentTimeOfDay - 0.8f - gracePeriod) * (currentTimeOfDay - 0.8f - gracePeriod) * (3 - 2 * (currentTimeOfDay - 0.8f - gracePeriod));
+            sun.intensity = Mathf.Lerp(0, sunInitialIntensity, smoothStep);
+        }
     }
 
     public void SetTime(float time) {

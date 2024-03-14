@@ -8,11 +8,10 @@ public abstract class QuestObjective : MonoBehaviour {
     public event Action OnObjectiveComplete;
     public bool IsComplete { get; protected set; }
     public virtual void OnStart() {
-        this.gameObject.SetActive(true);
+        IsComplete = false;
     }
 
     public virtual void OnAfterComplete() {
-        this.gameObject.SetActive(false);
     }
     public void CompleteObjective() {
         IsComplete = true;
