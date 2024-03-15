@@ -8,16 +8,11 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions playerInputActions;
     private InputAction drive;
     [SerializeField] private PlayerMotor playerMotor;
-    private bool isTurningLeft, isTurningRight;
+    [SerializeField] private bool isTurningLeft, isTurningRight;
     
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
-        
-    }
-
-    private void Start()
-    {
         playerInputActions.ByBike.TurnaroundLeftStart.performed += ctx => TurningLeftPressed();//nene Error
         playerInputActions.ByBike.TurnaroundLeftEnd.performed += ctx => TurningLeftReleased();
         
@@ -26,16 +21,16 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+
     private void FixedUpdate()
     {
+
         //Movement
         playerMotor.Moving(drive.ReadValue<Vector2>());
         if (isTurningLeft)
-        {
-            
-            Debug.Log("ee");
             playerMotor.RotatingLeft();
-        }
+        
         if (isTurningRight)
             playerMotor.RotatingRight();
 
@@ -46,7 +41,10 @@ public class PlayerController : MonoBehaviour
     {
         drive = playerInputActions.ByBike.Drive;
         drive.Enable();
-
+        playerInputActions.ByBike.TurnaroundLeftEnd.Enable();
+        playerInputActions.ByBike.TurnaroundLeftStart.Enable();
+        playerInputActions.ByBike.TurnaroundRightEnd.Enable();
+        playerInputActions.ByBike.TurnaroundRightStart.Enable();
         
     }
     
@@ -54,25 +52,32 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         drive.Disable();
-
+        playerInputActions.ByBike.TurnaroundLeftEnd.Disable();
+        playerInputActions.ByBike.TurnaroundLeftStart.Disable();
+        playerInputActions.ByBike.TurnaroundRightEnd.Disable();
+        playerInputActions.ByBike.TurnaroundRightStart.Disable();
     }
     #endregion
 
     private void TurningLeftPressed()
     {
-        Debug.Log("Truee");
+        Debug.Log("True left");
         isTurningLeft = true;
     }
-    private void TurningLeftReleased()
+    private void TurningLeftReleased()  
     {
+        Debug.Log("False left");
         isTurningLeft = false;
     }
     private void TurningRightPressed()
     {
+        Debug.Log("True right");
+
         isTurningRight = true;
     }
     private void TurningRightReleased()
     {
+        Debug.Log("False right");
         isTurningRight = false;
     }
 
