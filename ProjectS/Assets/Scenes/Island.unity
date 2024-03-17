@@ -700,7 +700,7 @@ PrefabInstance:
     - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
         type: 3}
       propertyPath: locationQuestPool.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
         type: 3}
@@ -709,8 +709,23 @@ PrefabInstance:
       objectReference: {fileID: 2115920256}
     - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
         type: 3}
+      propertyPath: locationQuestPool.Array.data[1].location
+      value: 
+      objectReference: {fileID: 1172863181}
+    - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
+        type: 3}
       propertyPath: locationQuestPool.Array.data[0].timeOfDay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
+        type: 3}
+      propertyPath: locationQuestPool.Array.data[1].timeOfDay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
+        type: 3}
+      propertyPath: locationQuestPool.Array.data[1].quests.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
         type: 3}
@@ -719,7 +734,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
         type: 3}
+      propertyPath: locationQuestPool.Array.data[1].quests.Array.data[0].Description
+      value: "bring mich zur stra\xDFe"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
+        type: 3}
       propertyPath: locationQuestPool.Array.data[0].quests.Array.data[0].objectives.Array.data[0]
+      value: 
+      objectReference: {fileID: 1172863178}
+    - target: {fileID: 4358168256239849394, guid: f1c4acd944457ae4286ba6f516c3c413,
+        type: 3}
+      propertyPath: locationQuestPool.Array.data[1].quests.Array.data[0].objectives.Array.data[0]
       value: 
       objectReference: {fileID: 1172863178}
     m_RemovedComponents: []
@@ -861,7 +886,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1213755376}
     - target: {fileID: 6051227446492229821, guid: 61f831f50b0f8b0448369ad33141276c,
         type: 3}
       propertyPath: dialogtext
@@ -1581,6 +1606,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1172863176}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &1172863181 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 3574316837490416632, guid: 07db37267c7058c4abde285d321f021c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1172863176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1213755376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1200186589729790199, guid: 2d08c07a8f3aef740a924a13d7fa8976,
+    type: 3}
+  m_PrefabInstance: {fileID: 267077649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1243867107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1954,7 +1991,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 267077649}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1213755376}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a88207dffbcf436429db5ad5bf259b84, type: 3}
