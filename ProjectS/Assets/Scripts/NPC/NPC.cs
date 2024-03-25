@@ -10,7 +10,7 @@ public class NPC : MonoBehaviour
     [SerializeField] public LocationQuestPool[] locationQuestPool;
     private bool isPlayerInRange;
 
-    private void Awake() {
+    private void Start() {
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
         this.gameObject.SetActive(false);
     }
