@@ -3,8 +3,15 @@
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.7.0",
+<<<<<<< HEAD
     "com.unity.render-pipelines.high-definition": "14.0.8",
     "com.unity.textmeshpro": "3.0.8",
+=======
+    "com.unity.multiplayer.tools": "1.1.1",
+    "com.unity.netcode.gameobjects": "1.4.0",
+    "com.unity.render-pipelines.high-definition": "14.0.8",
+    "com.unity.textmeshpro": "3.0.6",
+>>>>>>> ca125ffa7a75af40223e17141f4b54e4a2b2fba5
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.1",

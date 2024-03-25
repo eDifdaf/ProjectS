@@ -6,7 +6,10 @@ public class QuestManager : MonoBehaviour
 {
     private Quest currentQuest;
     
-    public void AssignQuests(Quest quest) {
+    public void AssignQuests(Quest quest){
+        if (currentQuest == quest) {
+            return;
+        }
         quest.StartQuest();
         quest.OnQuestComplete += DebugStuff;
         quest.OnQuestUpdated += UpdateStuff;

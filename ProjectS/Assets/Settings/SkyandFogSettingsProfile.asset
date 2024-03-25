@@ -149,7 +149,7 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 2
   enabled:
     m_OverrideState: 1
     m_Value: 1
@@ -157,8 +157,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   color:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.735849, g: 0.31693646, b: 0.079832695, a: 1}
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -175,16 +175,16 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1000
   baseHeight:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 75
   maximumHeight:
-    m_OverrideState: 0
-    m_Value: 50
+    m_OverrideState: 1
+    m_Value: 100
   meanFreePath:
     m_OverrideState: 0
-    m_Value: 400
+    m_Value: 30
   enableVolumetricFog:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   albedo:
     m_OverrideState: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
     m_Value: 64
   denoisingMode:
     m_OverrideState: 0
-    m_Value: 2
+    m_Value: 3
   anisotropy:
     m_OverrideState: 1
     m_Value: 0.65
@@ -215,7 +215,7 @@ MonoBehaviour:
     m_Value: 64
   m_VolumetricFogBudget:
     m_OverrideState: 0
-    m_Value: 0.5
+    m_Value: 0.75
   m_ResolutionDepthRatio:
     m_OverrideState: 0
     m_Value: 0.5
@@ -239,6 +239,7 @@ MonoBehaviour:
   - {fileID: -7724654706381055090}
   - {fileID: -4151792930034644520}
   - {fileID: 7642060734654139733}
+  - {fileID: 3921287925570314074}
 --- !u!114 &1142777632297148762
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -256,8 +257,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 4
   cloudType:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 0
@@ -270,6 +271,46 @@ MonoBehaviour:
   fogType:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &3921287925570314074
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76fd08475e21554b8f284f723dd7cf8, type: 3}
+  m_Name: WaterRendering
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  minGridSize:
+    m_OverrideState: 0
+    m_Value: 50
+  maxGridSize:
+    m_OverrideState: 0
+    m_Value: 2500
+  elevationTransition:
+    m_OverrideState: 0
+    m_Value: 1000
+  numLevelOfDetails:
+    m_OverrideState: 0
+    m_Value: 3
+  maxTessellationFactor:
+    m_OverrideState: 0
+    m_Value: 10
+  tessellationFactorFadeStart:
+    m_OverrideState: 0
+    m_Value: 150
+  tessellationFactorFadeRange:
+    m_OverrideState: 0
+    m_Value: 1850
+  ambientProbeDimmer:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &7642060734654139733
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -285,25 +326,25 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 0
   meteringMode:
     m_OverrideState: 0
-    m_Value: 2
+    m_Value: 0
   luminanceSource:
     m_OverrideState: 0
     m_Value: 1
   fixedExposure:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 12
   compensation:
     m_OverrideState: 0
     m_Value: 0
   limitMin:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 12.5
   limitMax:
     m_OverrideState: 1
-    m_Value: 14
+    m_Value: 15
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -383,13 +424,13 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   adaptationMode:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   adaptationSpeedDarkToLight:
-    m_OverrideState: 0
-    m_Value: 3
+    m_OverrideState: 1
+    m_Value: 1
   adaptationSpeedLightToDark:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   weightTextureMask:
     m_OverrideState: 0

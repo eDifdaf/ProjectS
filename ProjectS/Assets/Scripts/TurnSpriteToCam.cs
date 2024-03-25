@@ -6,16 +6,21 @@ public class TurnSpriteToCam : MonoBehaviour
 {
     // Start is called before the first frame update
     //find camera
-    public Camera cam;
+    public Camera cam = null;
     void Start()
     {
         //find main camera
-        cam = Camera.main;
+        if (Camera.main != null) {
+            cam = Camera.main;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(cam == null) {
+            cam = Camera.main;
+        }
         //every frame, turn the sprite to face the camera
         transform.LookAt(cam.transform);
     }

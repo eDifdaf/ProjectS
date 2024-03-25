@@ -1,0 +1,17 @@
+eigenen branch auf neuesten stand bringen:
+
+git commit -m "info zum commit" //alle changes commiten, keine änderungen local lassen. entweder commit, stash, oder changes reverten
+
+git push
+
+git checkout dev
+
+git pull origin *name deines branches*
+
+git push
+
+git checkout *name deines branches*
+
+git pull origin dev
+
+git push
