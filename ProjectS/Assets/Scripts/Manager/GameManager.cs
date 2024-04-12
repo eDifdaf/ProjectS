@@ -1,6 +1,5 @@
-using Unity.Netcode;
 using UnityEngine;
-
+using Unity.Netcode;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
