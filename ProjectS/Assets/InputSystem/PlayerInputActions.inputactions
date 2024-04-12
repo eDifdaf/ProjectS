@@ -15,6 +15,42 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "TurnaroundLeftStart",
+                    "type": "Button",
+                    "id": "a91d4319-572d-40cb-af1c-deaa8ab716aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TurnaroundLeftEnd",
+                    "type": "Button",
+                    "id": "64373c15-ab91-400a-8acc-dc84df24b9d0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TurnaroundRightStart",
+                    "type": "Button",
+                    "id": "de0e6a73-b722-490d-9b09-919cdb8c4abf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TurnaroundRightEnd",
+                    "type": "Button",
+                    "id": "fde4ea36-1f00-4eca-8c78-7885e189a8fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Look",
                     "type": "Value",
                     "id": "8aaeea26-9b67-43dc-9096-527b34fc0d19",
@@ -26,7 +62,7 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD",
+                    "name": "WS",
                     "id": "50348043-0a36-480e-b785-04ebd0daa71d",
                     "path": "2DVector",
                     "interactions": "",
@@ -59,37 +95,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
-                    "id": "f5a25d30-a743-4824-a47a-5b3a83836e63",
-                    "path": "<Keyboard>/a",
+                    "name": "Joystick",
+                    "id": "7b9ca6a8-20a7-46c0-9073-8f1311ddcf7a",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Drive",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "2d253984-d9a1-4aa0-82f0-28e710ebba63",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drive",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "3b46c758-a1cb-4eea-aed9-d0e3e95e553e",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drive",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "8571ef47-05ff-4667-aa2c-a9647ac83296",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "4019394f-9b04-4bff-9594-1c16d1a7ac81",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -110,6 +146,94 @@
                     "processors": "",
                     "groups": "",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b39d290f-d74d-40f9-a3ed-4137d8fbdc6d",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundLeftStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "77a3b052-bdb2-427f-989a-c054bac5c8ae",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundLeftStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4968816-b266-4df4-889b-640f13cb8e60",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundRightStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07a70026-94a6-4584-b5d5-8352a58cc6e8",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundRightStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ddb04d8-d14a-4e79-a29d-b2927984b7bd",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundLeftEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05e88f2e-7cd4-4352-8bf9-2bd5886bc7f1",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundLeftEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7646f2c-3ad1-4085-be19-4d83bb0685bc",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundRightEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9312e447-457b-4546-b151-f29bffc70bd9",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TurnaroundRightEnd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
