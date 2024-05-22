@@ -1,16 +1,18 @@
 using System;
 using UnityEngine;
 
-public abstract class QuestObjective : MonoBehaviour {
+public abstract class QuestObjective : MonoBehaviour{
     public event Action OnObjectiveComplete;
-    public bool IsComplete { get; protected set; }
-    public virtual void OnStart() {
+    public bool IsComplete{ get; protected set; }
+
+    public virtual void OnStart(){
         IsComplete = false;
     }
 
-    public virtual void OnAfterComplete() {
+    public virtual void OnAfterComplete(){
     }
-    public void CompleteObjective() {
+
+    public void CompleteObjective(){
         IsComplete = true;
         OnAfterComplete();
         OnObjectiveComplete?.Invoke();

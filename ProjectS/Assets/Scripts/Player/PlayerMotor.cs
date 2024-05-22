@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class PlayerMotor : MonoBehaviour
-{
+public class PlayerMotor : MonoBehaviour{
     [SerializeField] private CharacterController controller;
     [SerializeField] private GameObject left;
     [SerializeField] private GameObject right;
@@ -11,27 +10,22 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private float gravity = 9.81f;
 
 
-
-    public void Moving(Vector2 input)
-    {
+    public void Moving(Vector2 input){
         Vector3 moveInDirection = Vector3.zero;
         moveInDirection.x = input.x;
         moveInDirection.z = input.y;
         controller.Move(transform.TransformDirection(moveInDirection * speed) * Time.deltaTime);
     }
 
-    public void RotatingLeft()
-    {
+    public void RotatingLeft(){
         transform.RotateAround(left.transform.position, Vector3.up, -turnSpeed * Time.deltaTime);
     }
-    public void RotatingRight()
-    {
+
+    public void RotatingRight(){
         transform.RotateAround(right.transform.position, Vector3.up, turnSpeed * Time.deltaTime);
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate(){
         controller.Move(Vector3.down * (gravity * Time.deltaTime));
-        
     }
 }
