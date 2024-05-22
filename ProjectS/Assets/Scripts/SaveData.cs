@@ -35,6 +35,7 @@ public class SaveData{
         questsData = new QuestsData();
     }
 
+    [System.Serializable]
     public struct PlayerData{
         public Vector3 position;
         public Quaternion rotation;
@@ -43,27 +44,32 @@ public class SaveData{
         public ERadioStations currentRadio;
     }
 
+    [System.Serializable]
     public struct UnlocksData{
         public BikeData bike;
         public GarageData garage;
         public List<bool> unlockedRadios;
 
+        [System.Serializable]
         public struct BikeData{
             public EPlayerColor color;
             public GearData gear;
 
+            [System.Serializable]
             public struct GearData{
                 public float speed;
                 public float acceleration;
             }
         }
 
+        [System.Serializable]
         public struct GarageData{
             public List<bool> trophies;
             public List<bool> cosmetic;
         }
     }
 
+    [System.Serializable]
     public struct QuestsData{
         public List<Quest> activeQuests;
         public List<Quest> completedQuests;

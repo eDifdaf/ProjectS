@@ -1,18 +1,15 @@
 using UnityEngine;
-using Unity.Netcode;
 
 public class GameManager : MonoBehaviour{
     public static GameManager Instance;
     [SerializeField] private QuestManager questManager;
     [SerializeField] private DialogManager dialogManager;
     [SerializeField] private DayNightManager dayNightManager;
-    [SerializeField] private NetworkManager networkManager;
     [SerializeField] private SaveManager saveManager;
 
     public DayNightManager DayNightManager => dayNightManager;
     public QuestManager QuestManager => questManager;
     public DialogManager DialogManager => dialogManager;
-    public NetworkManager NetworkManager => networkManager;
     public SaveManager SaveManager => saveManager;
 
 
@@ -23,7 +20,6 @@ public class GameManager : MonoBehaviour{
         else{
             Destroy(this);
         }
-
         DontDestroyOnLoad(this);
     }
 
