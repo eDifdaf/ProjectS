@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 //[ActionMap].[Action].performed/cancled/hold += [context] => what it should do 
 public class PlayerController : MonoBehaviour{
+    public bool playerCanMove = true;
     private PlayerInputActions playerInputActions;
     private InputAction drive;
     [SerializeField] private PlayerMotor playerMotor;
@@ -21,12 +22,16 @@ public class PlayerController : MonoBehaviour{
 
     private void FixedUpdate(){
         //Movement
-        playerMotor.Moving(drive.ReadValue<Vector2>());
-        if (isTurningLeft)
-            playerMotor.RotatingLeft();
 
-        if (isTurningRight)
-            playerMotor.RotatingRight();
+        if (playerCanMove){
+            playerMotor.Moving(drive.ReadValue<Vector2>());
+            if (isTurningLeft)
+                playerMotor.RotatingLeft();
+
+            if (isTurningRight)
+                playerMotor.RotatingRight();
+        }
+
     }
 
     #region EnableAndDisable

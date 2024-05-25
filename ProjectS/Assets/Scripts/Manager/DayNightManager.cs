@@ -12,10 +12,9 @@ public class DayNightManager : MonoBehaviour{
 
     public float timeSpeed = 1f;
 
-    [Header("Light Settings")] public Light sunLight;
-    public float sunposition = 1f;
+    [Header("Light Settings")] 
+    public Light sunLight;
     public Light moonLight;
-    public float moonposition = 1f;
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private Image uiImage;
@@ -46,12 +45,17 @@ public class DayNightManager : MonoBehaviour{
     }
 
     private void UpdateNPCs(){
-        if (currentTimeOfDay >= 6.0f && currentTimeOfDay < 12.0f && currentTime != NPCData.TimeOfDay.Morning){
+        if (currentTimeOfDay >= 6.0f && currentTimeOfDay < 11.0f && currentTime != NPCData.TimeOfDay.Morning){
             currentTime = NPCData.TimeOfDay.Morning;
             OnTimeChanged?.Invoke(currentTime);
             Debug.Log("Morning");
         }
-        else if (currentTimeOfDay >= 12.0f && currentTimeOfDay < 18.0f && currentTime != NPCData.TimeOfDay.Afternoon){
+        else if (currentTimeOfDay >= 11.0f && currentTimeOfDay < 14.0f && currentTime != NPCData.TimeOfDay.Noon){
+            currentTime = NPCData.TimeOfDay.Noon;
+            OnTimeChanged?.Invoke(currentTime);
+            Debug.Log("Noon");
+        }
+        else if (currentTimeOfDay >= 14.0f && currentTimeOfDay < 18.0f && currentTime != NPCData.TimeOfDay.Afternoon){
             currentTime = NPCData.TimeOfDay.Afternoon;
             OnTimeChanged?.Invoke(currentTime);
             Debug.Log("Afternoon");
@@ -66,17 +70,44 @@ public class DayNightManager : MonoBehaviour{
             OnTimeChanged?.Invoke(currentTime);
             Debug.Log("Night");
         }
-
-        timeText.text = currentTimeOfDay.ToString("F2");
+    
+        timeText.text = currentTime.ToString();
         sunLight.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 15f) - 90, 170, 0);
         uiImage.color = Color.Lerp(Color.black, Color.white, currentTimeOfDay / 24f);
     }
 
-    private void UpdateLight(){
-        float sunRotation = (currentTimeOfDay / 24f) * 360f;
-        sunLight.transform.localRotation = Quaternion.Euler(sunRotation - 90f, sunposition, 0);
-
-        float moonRotation = ((currentTimeOfDay + 12f) / 24f) * 360f;
-        moonLight.transform.localRotation = Quaternion.Euler(moonRotation - 90f, moonposition, 0);
+    private void UpdateLight()
+    {
+        if (currentTimeOfDay >= 6.0f && currentTimeOfDay < 11.0f) // Morning
+        {
+            sunLight.enabled = true;
+            moonLight.enabled = false;
+            sunLight.transform.rotation = Quaternion.Euler(25f, 0f, 0f); // Adjust these values
+        }
+        else if (currentTimeOfDay >= 11.0f && currentTimeOfDay < 13.0f) // Noon
+        {
+            sunLight.enabled = true;
+            moonLight.enabled = false;
+            sunLight.transform.rotation = Quaternion.Euler(90f, 0f, 0f); // Adjust these values
+        }
+        else if (currentTimeOfDay >= 13.0f && currentTimeOfDay < 18.0f) // Afternoon
+        {
+            sunLight.enabled = true;
+            moonLight.enabled = false;
+            sunLight.transform.rotation = Quaternion.Euler(110f, 0f, 0f); // Adjust these values
+        }
+        else if (currentTimeOfDay >= 18.0f && currentTimeOfDay < 24.0f) // Evening
+        {
+            sunLight.enabled = false;
+            moonLight.enabled = true;
+            sunLight.transform.rotation = Quaternion.Euler(170f,0f, 0f); // Adjust these values
+        }
+        else // Night
+        {
+            sunLight.enabled = false;
+            moonLight.enabled = true;
+            sunLight.transform.rotation = Quaternion.Euler(0f, 0f, 0f); // Adjust these values
+            moonLight.transform.rotation = Quaternion.Euler(90f, 0f, 0f); // Adjust these values
+        }
     }
 }

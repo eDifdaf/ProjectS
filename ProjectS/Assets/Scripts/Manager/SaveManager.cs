@@ -50,14 +50,14 @@ public class SaveManager : MonoBehaviour
 
         string json = "{\n \"player\" : " + playerJS + ", \n \"unlocks\" : " + unlockJS + ", \n \"quests\" : " + questJS + " \n}";
         int checksum = json.GetHashCode();
-        //json += "\n" + checksum;
+        json += "\n" + checksum;
         
         System.IO.File.WriteAllText(Application.persistentDataPath + "/save.json", json);
         Debug.Log(Application.persistentDataPath + "/save.json");
         
     }
-    public void LoadGame()
-    {
+    public void LoadGame(){
+        playerTransform.GetComponent<PlayerController>().playerCanMove = false;
         string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/save.json");
         int checksum = int.Parse(json.Substring(json.LastIndexOf('\n') + 1));
         json = json.Substring(0, json.LastIndexOf('\n'));
@@ -68,6 +68,7 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
+        playerTransform.GetComponent<PlayerController>();
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 
         playerTransform.transform.position = saveData.player.position;
