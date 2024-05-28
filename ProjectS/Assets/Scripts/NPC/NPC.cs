@@ -9,10 +9,13 @@ public class NPC : MonoBehaviour
     [SerializeField] private SpriteRenderer popup;
     [SerializeField] public LocationQuestPool[] locationQuestPool;
     private bool isPlayerInRange;
+    [SerializeField] private PlayerController playerController;
+
 
     private void Start() {
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
         this.gameObject.SetActive(false);
+
     }
 
     private void OnTimeChanged(NPCData.TimeOfDay obj) {
@@ -33,8 +36,9 @@ public class NPC : MonoBehaviour
         this.gameObject.SetActive(true);
     }
 
-    void Update() {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.DialogManager.IsEnabled == false) {
+    public void PlayerInteract()
+    {
+        if (isPlayerInRange && GameManager.Instance.DialogManager.IsEnabled == false) {
             GameManager.Instance.SetActiveNPC(this);
         }
     }
@@ -48,6 +52,8 @@ public class NPC : MonoBehaviour
         }
         popup.enabled = true;
         isPlayerInRange = true;
+ 
+        playerController.npc = this;
     }
     
     void OnTriggerExit(Collider other)
@@ -59,6 +65,8 @@ public class NPC : MonoBehaviour
         popup.enabled = false;
         isPlayerInRange = false;
         GameManager.Instance.SetActiveNPC(null);
+
+        playerController.npc = null;
     }
 
     private void OnDestroy() {

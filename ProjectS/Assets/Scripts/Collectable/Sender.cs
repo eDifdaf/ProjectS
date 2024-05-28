@@ -6,8 +6,6 @@ public class Sender : MonoBehaviour
 {
     private bool isPlayerInRange;
     [SerializeField] private GameObject player;
-
-
     
     
     public void PlayerInteract()
