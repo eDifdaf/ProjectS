@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using TMPro;
 
 public class PlayerMotor : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] public Rigidbody bikeRb;
     [SerializeField] private float leanAngle;
     [SerializeField] public GameObject bike;
+    public TextMeshProUGUI textForce;
+    public TextMeshProUGUI textSpeed;
 
     
     
@@ -21,6 +24,8 @@ public class PlayerMotor : MonoBehaviour
     {
         Drive();
         Steer();
+        textForce.text = backWheelCollider.motorTorque.ToString();
+        textSpeed.text = bikeRb.velocity.ToString();
     }
     
     public void Drive()
