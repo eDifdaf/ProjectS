@@ -37,12 +37,10 @@ public class SaveManager : MonoBehaviour
         
         saveData.unlocksData.unlockedRadios = new List<bool>();
         
+        */
+        saveData.questsData.activeQuests = GameManager.Instance.QuestManager.currentQuest;
+        saveData.questsData.completedQuests = GameManager.Instance.Playermanager.LcompletedQuests;
         
-        saveData.questsData.activeQuests = new List<Quest>();
-        saveData.questsData.completedQuests = new List<Quest>();
-        Debug.Log(saveData.ToString());*/
-        
-        //write those as json save file
         string playerJS = JsonUtility.ToJson(saveData.player);
         string unlockJS = JsonUtility.ToJson(saveData.unlocksData);
         string questJS = JsonUtility.ToJson(saveData.questsData);
@@ -73,5 +71,12 @@ public class SaveManager : MonoBehaviour
 
         playerTransform.transform.position = saveData.player.position;
         playerTransform.transform.rotation = saveData.player.rotation;
+        GameManager.Instance.QuestManager.AssignQuests(saveData.questsData.activeQuests);
+        GameManager.Instance.Playermanager.Init();
+        GameManager.Instance.Playermanager.LcompletedQuests = saveData.questsData.completedQuests;
+        for (int i = 0; i < GameManager.Instance.Playermanager.LcompletedQuests.Count; i++){
+            GameManager.Instance.Playermanager.DcompletedQuests.Add(i, GameManager.Instance.Playermanager.LcompletedQuests[i]);
+        }
+        
     }
 }

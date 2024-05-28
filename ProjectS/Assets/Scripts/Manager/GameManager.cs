@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour{
     [SerializeField] private DialogManager dialogManager;
     [SerializeField] private DayNightManager dayNightManager;
     [SerializeField] private SaveManager saveManager;
+    [SerializeField] private Playermanager playermanager;
 
     public DayNightManager DayNightManager => dayNightManager;
     public QuestManager QuestManager => questManager;
     public DialogManager DialogManager => dialogManager;
     public SaveManager SaveManager => saveManager;
-
+    public Playermanager Playermanager => playermanager;
 
     void Awake(){
         if (Instance == null){

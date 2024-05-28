@@ -3,7 +3,7 @@ using UnityEngine;
 
 [Serializable]
 public class Quest{
-    [SerializeField] int id;
+    public int id;
     public string Title;
     public string Description;
     [SerializeField] QuestObjective[] objectives;

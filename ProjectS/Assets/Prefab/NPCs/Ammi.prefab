@@ -57,6 +57,10 @@ MonoBehaviour:
     location: {fileID: 3574316837490416632, guid: a13db2059497ef14e83392e691dd4c09,
       type: 3}
     timeOfDay: 00000000
+  - quests: []
+    location: {fileID: 3574316837490416632, guid: f89f11cd5f0a39c41a2959d8cf2ef0c0,
+      type: 3}
+    timeOfDay: 01000000
 --- !u!135 &9080120787861807895
 SphereCollider:
   m_ObjectHideFlags: 0

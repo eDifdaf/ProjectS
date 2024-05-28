@@ -33,7 +33,7 @@ Transform:
   - {fileID: 6410811629092479446}
   - {fileID: 3503887924919569600}
   m_Father: {fileID: 0}
-  m_RootOrder: -2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4358168256239849394
 MonoBehaviour:
@@ -51,7 +51,6 @@ MonoBehaviour:
   story: 
   greetings: []
   goodbyes: []
-  timeOfDay: 0
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
   - quests:
@@ -62,7 +61,7 @@ MonoBehaviour:
       - {fileID: 0}
       questGiver: {fileID: 4358168256239849394}
     location: {fileID: 0}
-    timeOfDay: 0
+    timeOfDay: 
   - quests:
     - id: 0
       Title: hallo
@@ -71,7 +70,7 @@ MonoBehaviour:
       - {fileID: 0}
       questGiver: {fileID: 4358168256239849394}
     location: {fileID: 0}
-    timeOfDay: 1
+    timeOfDay: 
 --- !u!135 &9080120787861807895
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -204,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 7061392720397265061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.978, z: 0}
-  m_LocalScale: {x: 6.7002, y: 12.822187, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 787860191466947432}

@@ -2,32 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public enum ERadioStations{
-    None,
-    Erwin,
-    Hotradio,
-    Beachwave,
-    ClassicFm,
-}
-public enum EPlayerColor{
-    Red,
-    Blue,
-    Green,
-    Yellow,
-    Purple,
-    Orange,
-    Pink,
-    Black,
-    White,
 
-} 
 [System.Serializable]
 public class SaveData{
     public PlayerData player;
     public UnlocksData unlocksData;
     public QuestsData questsData;
-
-    
 
     public SaveData(){
         player = new PlayerData();
@@ -57,6 +37,7 @@ public class SaveData{
 
             [System.Serializable]
             public struct GearData{
+                //TODO: finally have the bike stats
                 public float speed;
                 public float acceleration;
             }
@@ -64,6 +45,7 @@ public class SaveData{
 
         [System.Serializable]
         public struct GarageData{
+            //TODO: implement garage stuff
             public List<bool> trophies;
             public List<bool> cosmetic;
         }
@@ -71,7 +53,7 @@ public class SaveData{
 
     [System.Serializable]
     public struct QuestsData{
-        public List<Quest> activeQuests;
-        public List<Quest> completedQuests;
+        public Quest activeQuests;
+        public List<bool> completedQuests;
     }
 }

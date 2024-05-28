@@ -1,15 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-public enum TimeOfDay{
-    Morning,
-    Noon,
-    Afternoon,
-    Evening,
-    Night
-}
 
 public class NPC : MonoBehaviour{
+    
     [SerializeField] public string npcName;
     [SerializeField] public string story;
     [SerializeField] public List<string> greetings;
