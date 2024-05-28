@@ -6,5 +6,5 @@ using UnityEngine;
 public class LocationQuestPool{
     public List<Quest> quests;
     public Collider location;
-    public NPCData.TimeOfDay timeOfDay;
+    public List<TimeOfDay> timeOfDay;
 }

@@ -19,7 +19,6 @@ public class TurnSpriteToCam : MonoBehaviour{
         if (cam == null){
             cam = Camera.main;
         }
-
         //every frame, turn the sprite to face the camera
         transform.LookAt(cam.transform);
     }

@@ -15,7 +15,7 @@ public class DialogManager : MonoBehaviour{
 
     public void StartDialog(NPC npc){
         currNPC = npc;
-        StartCoroutine(ShowText(currNPC.npcData.greetings[0]));
+        StartCoroutine(ShowText(currNPC.greetings[0]));
         _buttons[0].SetText("Give me a quest");
         _buttons[1].SetText("Tell me about you");
         _buttons[2].SetText("I don't need anything, bye");
@@ -41,11 +41,11 @@ public class DialogManager : MonoBehaviour{
     }
 
     public void Button2(){
-        StartCoroutine(ShowText(currNPC.npcData.story));
+        StartCoroutine(ShowText(currNPC.story));
     }
 
     public void Button3(){
-        StartCoroutine(Goodbye(currNPC.npcData.goodbyes[0]));
+        StartCoroutine(Goodbye(currNPC.goodbyes[0]));
     }
 
     IEnumerator Goodbye(string fullText){

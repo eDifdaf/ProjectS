@@ -1,34 +1,41 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+public enum TimeOfDay{
+    Morning,
+    Noon,
+    Afternoon,
+    Evening,
+    Night
+}
 
 public class NPC : MonoBehaviour{
     [SerializeField] public string npcName;
-    [SerializeField] public NPCData npcData;
+    [SerializeField] public string story;
+    [SerializeField] public List<string> greetings;
+    [SerializeField] public List<string> goodbyes;
     [SerializeField] private SpriteRenderer popup;
     [SerializeField] public LocationQuestPool[] locationQuestPool;
     private bool isPlayerInRange;
     
-    
     public event Action OnPlayerInteract;
     
-    
-
     private void Start(){
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
         this.gameObject.SetActive(false);
         OnPlayerInteract += PlayerInteract;
     }
 
-    private void OnTimeChanged(NPCData.TimeOfDay obj){
+    private void OnTimeChanged(TimeOfDay obj){
         LocationQuestPool newLocation = null;
         foreach (var location in locationQuestPool){
-            if (location.timeOfDay == obj){
+            if (location.timeOfDay.Contains(obj)){
                 newLocation = location;
             }
         }
 
         if (newLocation == null){
+            this.gameObject.transform.position = new Vector3(0f, 0f, 0f);
             this.gameObject.SetActive(false);
             return;
         }
