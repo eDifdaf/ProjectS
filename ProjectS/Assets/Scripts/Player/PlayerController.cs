@@ -28,7 +28,18 @@ public class PlayerController : MonoBehaviour
     }
 
 
+<<<<<<< Updated upstream
     
+=======
+    private void FixedUpdate()
+    {
+        //Movement
+        playerMotor.Moving(drive.ReadValue<Vector2>());
+
+
+    }
+
+>>>>>>> Stashed changes
     #region EnableAndDisable
     private void OnEnable()
     {
