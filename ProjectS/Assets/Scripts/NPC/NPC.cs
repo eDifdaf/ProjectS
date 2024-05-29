@@ -9,7 +9,7 @@ public class NPC : MonoBehaviour{
     [SerializeField] public List<string> greetings;
     [SerializeField] public List<string> goodbyes;
     [SerializeField] private SpriteRenderer popup;
-    [SerializeField] public LocationQuestPool[] locationQuestPool;
+    [SerializeField] public List<LocationQuestPool> locationQuestPool;
     private bool isPlayerInRange;
     
     public event Action OnPlayerInteract;
@@ -20,21 +20,23 @@ public class NPC : MonoBehaviour{
         OnPlayerInteract += PlayerInteract;
     }
 
-    private void OnTimeChanged(TimeOfDay obj){
-        LocationQuestPool newLocation = null;
-        foreach (var location in locationQuestPool){
-            if (location.timeOfDay.Contains(obj)){
-                newLocation = location;
+    private void OnTimeChanged(TimeOfDay currentTime){
+        Collider newLocation = null;
+        //check if the current time is in the timeOfDay list of any of the locations, if yes set the newLocation to that location
+        foreach (LocationQuestPool location in locationQuestPool){
+            if (location.timeOfDay.Contains(currentTime)){
+                newLocation = location.location;
+                break;
             }
         }
 
         if (newLocation == null){
-            this.gameObject.transform.position = new Vector3(0f, 0f, 0f);
+            //this.gameObject.transform.position = new Vector3(0f, 0f, 0f);
             this.gameObject.SetActive(false);
             return;
         }
 
-        this.transform.position = newLocation.location.bounds.center;
+        this.transform.position = newLocation.bounds.center;
         this.gameObject.SetActive(true);
     }
     

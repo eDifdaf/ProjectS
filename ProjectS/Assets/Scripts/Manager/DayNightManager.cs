@@ -19,7 +19,7 @@ public class DayNightManager : MonoBehaviour{
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private Image uiImage;
     public event Action<TimeOfDay> OnTimeChanged;
-    private TimeOfDay currentTime;
+    public TimeOfDay currentTime;
     public bool isPaused;
 
     public void PauseTime(){
@@ -48,27 +48,22 @@ public class DayNightManager : MonoBehaviour{
         if (currentTimeOfDay >= 6.0f && currentTimeOfDay < 11.0f && currentTime != TimeOfDay.Morning){
             currentTime = TimeOfDay.Morning;
             OnTimeChanged?.Invoke(currentTime);
-            Debug.Log("Morning");
         }
         else if (currentTimeOfDay >= 11.0f && currentTimeOfDay < 14.0f && currentTime != TimeOfDay.Noon){
             currentTime = TimeOfDay.Noon;
             OnTimeChanged?.Invoke(currentTime);
-            Debug.Log("Noon");
         }
         else if (currentTimeOfDay >= 14.0f && currentTimeOfDay < 18.0f && currentTime != TimeOfDay.Afternoon){
             currentTime = TimeOfDay.Afternoon;
             OnTimeChanged?.Invoke(currentTime);
-            Debug.Log("Afternoon");
         }
         else if (currentTimeOfDay >= 18.0f && currentTimeOfDay < 24.0f && currentTime != TimeOfDay.Evening){
             currentTime = TimeOfDay.Evening;
             OnTimeChanged?.Invoke(currentTime);
-            Debug.Log("Evening");
         }
         else if (currentTimeOfDay >= 0f && currentTimeOfDay < 6.0f && currentTime != TimeOfDay.Night){
             currentTime = TimeOfDay.Night;
             OnTimeChanged?.Invoke(currentTime);
-            Debug.Log("Night");
         }
     
         timeText.text = currentTime.ToString();
