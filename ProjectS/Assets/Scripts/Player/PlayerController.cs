@@ -1,79 +1,46 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-//[ActionMap].[Action].performed/cancled/hold += [context] => what it should do 
-public class PlayerController : MonoBehaviour{
-    public bool playerCanMove = true;
+public class PlayerController : MonoBehaviour
+{
     private PlayerInputActions playerInputActions;
-    private InputAction drive;
     [SerializeField] private PlayerMotor playerMotor;
-    [SerializeField] private bool isTurningLeft, isTurningRight;
-
-    private void Awake(){
+    public bool canMove;
+    public NPC npc;
+    public Sender sender;
+    
+    private void Awake()
+    {
         playerInputActions = new PlayerInputActions();
-        playerInputActions.ByBike.TurnaroundLeftStart.performed += ctx => TurningLeftPressed(); //nene Error
-        playerInputActions.ByBike.TurnaroundLeftEnd.performed += ctx => TurningLeftReleased();
-
-        playerInputActions.ByBike.TurnaroundRightStart.performed += ctx => TurningRightPressed();
-        playerInputActions.ByBike.TurnaroundRightEnd.performed += ctx => TurningRightReleased();
+        
+        //Acceleration
+        playerInputActions.OnBike.Accelerate.performed += ctx => playerMotor.forcePower = ctx.ReadValue<Vector2>().y;
+        playerInputActions.OnBike.Accelerate.canceled += ctx => playerMotor.forcePower = ctx.ReadValue<Vector2>().y;
+        //playerInputActions.OnBike.Accelerate.canceled += ctx => playerMotor.bikeRb.velocity = UnityEngine.Vector3.zero;
+        
+        //Steering
+        playerInputActions.OnBike.Steer.performed += ctx => playerMotor.currentAngle = ctx.ReadValue<Vector2>().x;
+        playerInputActions.OnBike.Steer.canceled += ctx => playerMotor.currentAngle = ctx.ReadValue<Vector2>().x;
+        
+        
+        //Interactions
+        playerInputActions.OnBike.Interact.performed += ctx => npc.PlayerInteract();
+        playerInputActions.OnBike.Interact.performed += ctx => sender.PlayerInteract();
     }
 
 
-    private void FixedUpdate(){
-        //Movement
-
-        if (playerCanMove){
-            playerMotor.Moving(drive.ReadValue<Vector2>());
-            if (isTurningLeft)
-                playerMotor.RotatingLeft();
-
-            if (isTurningRight)
-                playerMotor.RotatingRight();
-        }
-
-    }
-
+    
     #region EnableAndDisable
-
-    private void OnEnable(){
-        drive = playerInputActions.ByBike.Drive;
-        drive.Enable();
-        playerInputActions.ByBike.TurnaroundLeftEnd.Enable();
-        playerInputActions.ByBike.TurnaroundLeftStart.Enable();
-        playerInputActions.ByBike.TurnaroundRightEnd.Enable();
-        playerInputActions.ByBike.TurnaroundRightStart.Enable();
+    private void OnEnable()
+    {
+        playerInputActions.Enable();
+        playerInputActions.OnBike.Interact.Enable();
     }
-
-
-    private void OnDisable(){
-        drive.Disable();
-        playerInputActions.ByBike.TurnaroundLeftEnd.Disable();
-        playerInputActions.ByBike.TurnaroundLeftStart.Disable();
-        playerInputActions.ByBike.TurnaroundRightEnd.Disable();
-        playerInputActions.ByBike.TurnaroundRightStart.Disable();
+    
+    private void OnDisable()
+    {
+        playerInputActions.Disable();
+        playerInputActions.OnBike.Interact.Disable();
     }
 
     #endregion
-
-    private void TurningLeftPressed(){
-        Debug.Log("True left");
-        isTurningLeft = true;
-    }
-
-    private void TurningLeftReleased(){
-        Debug.Log("False left");
-        isTurningLeft = false;
-    }
-
-    private void TurningRightPressed(){
-        Debug.Log("True right");
-
-        isTurningRight = true;
-    }
-
-    private void TurningRightReleased(){
-        Debug.Log("False right");
-        isTurningRight = false;
-    }
 }

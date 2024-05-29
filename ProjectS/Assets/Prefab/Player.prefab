@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6745415670539503424}
   - component: {fileID: 7462068932685392782}
   - component: {fileID: 3434940978868775021}
-  - component: {fileID: 1602013874440542963}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -49,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMotor: {fileID: 0}
-  isTurningLeft: 0
-  isTurningRight: 0
+  canMove: 0
+  npc: {fileID: 0}
+  sender: {fileID: 0}
 --- !u!114 &3434940978868775021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,38 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88207dffbcf436429db5ad5bf259b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  left: {fileID: 0}
-  right: {fileID: 0}
-  speed: 5
-  turnSpeed: 20
-  gravity: 9.81
---- !u!143 &1602013874440542963
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200186589729790199}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  FrontWheel: {fileID: 0}
+  BackWheel: {fileID: 0}
 --- !u!1 &1726827433645064536
 GameObject:
   m_ObjectHideFlags: 0

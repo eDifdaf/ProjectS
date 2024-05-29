@@ -24,59 +24,32 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""ByBike"",
+            ""name"": ""OnBike"",
             ""id"": ""237b9926-1a35-43b9-b927-369176b0863b"",
             ""actions"": [
                 {
-                    ""name"": ""Drive"",
-                    ""type"": ""Button"",
-                    ""id"": ""53c0675d-01ed-42f4-88d9-be3ce060ea9f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""TurnaroundLeftStart"",
-                    ""type"": ""Button"",
-                    ""id"": ""a91d4319-572d-40cb-af1c-deaa8ab716aa"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""TurnaroundLeftEnd"",
-                    ""type"": ""Button"",
-                    ""id"": ""64373c15-ab91-400a-8acc-dc84df24b9d0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""TurnaroundRightStart"",
-                    ""type"": ""Button"",
-                    ""id"": ""de0e6a73-b722-490d-9b09-919cdb8c4abf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""TurnaroundRightEnd"",
-                    ""type"": ""Button"",
-                    ""id"": ""fde4ea36-1f00-4eca-8c78-7885e189a8fa"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Look"",
+                    ""name"": ""Accelerate"",
                     ""type"": ""Value"",
-                    ""id"": ""8aaeea26-9b67-43dc-9096-527b34fc0d19"",
+                    ""id"": ""53c0675d-01ed-42f4-88d9-be3ce060ea9f"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Steer"",
+                    ""type"": ""Button"",
+                    ""id"": ""32dbd7f8-a43a-4104-91ac-39d038e55e8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc342ba2-59bf-4b69-953e-f8b9ea9db4fa"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -84,74 +57,283 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
+                    ""name"": """",
+                    ""id"": ""34434748-2ef1-46fc-b2bc-fde9ce999b84"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""717b96f9-2bc1-4af4-9f73-4660c0f593ca"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WS"",
-                    ""id"": ""50348043-0a36-480e-b785-04ebd0daa71d"",
+                    ""id"": ""5fc8cbd6-326d-433c-aeb7-d16bc1b68930"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drive"",
+                    ""action"": ""Steer"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""c2d35cec-f137-44c1-8ce6-db3a37009f3f"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""name"": ""left"",
+                    ""id"": ""dca42d37-c5cd-40b2-aa88-bf08051e78f1"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drive"",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""81409e8f-2361-42f9-8e71-6f411ad704ef"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""name"": ""right"",
+                    ""id"": ""70719059-cf50-4798-8104-b4adc83b9f77"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drive"",
+                    ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""Joystick"",
-                    ""id"": ""7b9ca6a8-20a7-46c0-9073-8f1311ddcf7a"",
+                    ""id"": ""9d1b0fb0-c2bc-4462-bdda-801b573fc817"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drive"",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""873993d1-d3a6-4841-bad0-986cc50ddb14"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9681be38-8d26-4cc7-bcfd-152621b839af"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WS"",
+                    ""id"": ""57be15be-84ef-4b56-822e-c778130f813e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""8571ef47-05ff-4667-aa2c-a9647ac83296"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""id"": ""415cfbff-b4ae-4b74-ab0d-ac7750bc9b87"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drive"",
+                    ""action"": ""Accelerate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""4019394f-9b04-4bff-9594-1c16d1a7ac81"",
+                    ""id"": ""728e794a-3046-4932-ad2f-be3f16ff88b4"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Accelerate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""OnFoot"",
+            ""id"": ""23c8a1c1-53d8-4789-8ef5-b67ad197972a"",
+            ""actions"": [
+                {
+                    ""name"": ""Walk"",
+                    ""type"": ""Value"",
+                    ""id"": ""679e976e-4138-445b-8f34-dc8e2799f79a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""d57f9be3-329f-4833-abb4-8839091b7654"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SwitchToDrive"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a435119-29bd-46ed-a02d-134bce949ff5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""66a448f2-cc1e-4e6c-8ee7-12e787bfcff6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""e2685aad-3205-41aa-bfe5-6c73935959fb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9ac22eff-ef79-4a49-8d3d-741c20635b45"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""41cbc3ff-ef14-4031-9609-2159a27557aa"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e22d3dfc-eeb6-4b9e-a92f-8d7fcfe2d15f"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""78b02d71-0f70-4d51-ae75-451ff92ed388"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""6845c122-6460-4200-988c-4364a61afbf7"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""7e3581c7-8d48-4ae9-90cb-e012ea0bd79a"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""fdaf3650-b17a-4bc9-926b-746a339b8fd3"",
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drive"",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5d65731d-267c-4f15-9dbf-156b70d92671"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""66c082e7-ceed-4e5d-9dee-2c5078f3390b"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2c5daf3c-b629-4c3f-bd6b-3a7088360e75"",
+                    ""id"": ""5ac753a2-0bc0-426a-8262-bcf451b9015a"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -162,7 +344,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""83cf0d4a-02f9-419a-86c4-db42bd7c686d"",
+                    ""id"": ""2fca932f-58fa-4a67-ac0c-240ce48c9e5b"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -173,89 +355,45 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b39d290f-d74d-40f9-a3ed-4137d8fbdc6d"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnaroundLeftStart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""77a3b052-bdb2-427f-989a-c054bac5c8ae"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""id"": ""8cc4550b-e563-43bc-9ed9-5c639254cbc8"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TurnaroundLeftStart"",
+                    ""action"": ""SwitchToDrive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c4968816-b266-4df4-889b-640f13cb8e60"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnaroundRightStart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""07a70026-94a6-4584-b5d5-8352a58cc6e8"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""id"": ""71e54a05-62f7-4bc4-a89c-92c904536813"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TurnaroundRightStart"",
+                    ""action"": ""SwitchToDrive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4ddb04d8-d14a-4e79-a29d-b2927984b7bd"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnaroundLeftEnd"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05e88f2e-7cd4-4352-8bf9-2bd5886bc7f1"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""id"": ""7641544d-0b2f-4dca-a3fa-bd9efa22147e"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TurnaroundLeftEnd"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a7646f2c-3ad1-4085-be19-4d83bb0685bc"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnaroundRightEnd"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9312e447-457b-4546-b151-f29bffc70bd9"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""id"": ""9cfa82f8-d397-4a51-98c3-0852aa83dc8b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""TurnaroundRightEnd"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -264,14 +402,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // ByBike
-        m_ByBike = asset.FindActionMap("ByBike", throwIfNotFound: true);
-        m_ByBike_Drive = m_ByBike.FindAction("Drive", throwIfNotFound: true);
-        m_ByBike_TurnaroundLeftStart = m_ByBike.FindAction("TurnaroundLeftStart", throwIfNotFound: true);
-        m_ByBike_TurnaroundLeftEnd = m_ByBike.FindAction("TurnaroundLeftEnd", throwIfNotFound: true);
-        m_ByBike_TurnaroundRightStart = m_ByBike.FindAction("TurnaroundRightStart", throwIfNotFound: true);
-        m_ByBike_TurnaroundRightEnd = m_ByBike.FindAction("TurnaroundRightEnd", throwIfNotFound: true);
-        m_ByBike_Look = m_ByBike.FindAction("Look", throwIfNotFound: true);
+        // OnBike
+        m_OnBike = asset.FindActionMap("OnBike", throwIfNotFound: true);
+        m_OnBike_Accelerate = m_OnBike.FindAction("Accelerate", throwIfNotFound: true);
+        m_OnBike_Steer = m_OnBike.FindAction("Steer", throwIfNotFound: true);
+        m_OnBike_Interact = m_OnBike.FindAction("Interact", throwIfNotFound: true);
+        // OnFoot
+        m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
+        m_OnFoot_Walk = m_OnFoot.FindAction("Walk", throwIfNotFound: true);
+        m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
+        m_OnFoot_SwitchToDrive = m_OnFoot.FindAction("SwitchToDrive", throwIfNotFound: true);
+        m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -330,98 +471,148 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // ByBike
-    private readonly InputActionMap m_ByBike;
-    private List<IByBikeActions> m_ByBikeActionsCallbackInterfaces = new List<IByBikeActions>();
-    private readonly InputAction m_ByBike_Drive;
-    private readonly InputAction m_ByBike_TurnaroundLeftStart;
-    private readonly InputAction m_ByBike_TurnaroundLeftEnd;
-    private readonly InputAction m_ByBike_TurnaroundRightStart;
-    private readonly InputAction m_ByBike_TurnaroundRightEnd;
-    private readonly InputAction m_ByBike_Look;
-    public struct ByBikeActions
+    // OnBike
+    private readonly InputActionMap m_OnBike;
+    private List<IOnBikeActions> m_OnBikeActionsCallbackInterfaces = new List<IOnBikeActions>();
+    private readonly InputAction m_OnBike_Accelerate;
+    private readonly InputAction m_OnBike_Steer;
+    private readonly InputAction m_OnBike_Interact;
+    public struct OnBikeActions
     {
         private @PlayerInputActions m_Wrapper;
-        public ByBikeActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Drive => m_Wrapper.m_ByBike_Drive;
-        public InputAction @TurnaroundLeftStart => m_Wrapper.m_ByBike_TurnaroundLeftStart;
-        public InputAction @TurnaroundLeftEnd => m_Wrapper.m_ByBike_TurnaroundLeftEnd;
-        public InputAction @TurnaroundRightStart => m_Wrapper.m_ByBike_TurnaroundRightStart;
-        public InputAction @TurnaroundRightEnd => m_Wrapper.m_ByBike_TurnaroundRightEnd;
-        public InputAction @Look => m_Wrapper.m_ByBike_Look;
-        public InputActionMap Get() { return m_Wrapper.m_ByBike; }
+        public OnBikeActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Accelerate => m_Wrapper.m_OnBike_Accelerate;
+        public InputAction @Steer => m_Wrapper.m_OnBike_Steer;
+        public InputAction @Interact => m_Wrapper.m_OnBike_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_OnBike; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ByBikeActions set) { return set.Get(); }
-        public void AddCallbacks(IByBikeActions instance)
+        public static implicit operator InputActionMap(OnBikeActions set) { return set.Get(); }
+        public void AddCallbacks(IOnBikeActions instance)
         {
-            if (instance == null || m_Wrapper.m_ByBikeActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ByBikeActionsCallbackInterfaces.Add(instance);
-            @Drive.started += instance.OnDrive;
-            @Drive.performed += instance.OnDrive;
-            @Drive.canceled += instance.OnDrive;
-            @TurnaroundLeftStart.started += instance.OnTurnaroundLeftStart;
-            @TurnaroundLeftStart.performed += instance.OnTurnaroundLeftStart;
-            @TurnaroundLeftStart.canceled += instance.OnTurnaroundLeftStart;
-            @TurnaroundLeftEnd.started += instance.OnTurnaroundLeftEnd;
-            @TurnaroundLeftEnd.performed += instance.OnTurnaroundLeftEnd;
-            @TurnaroundLeftEnd.canceled += instance.OnTurnaroundLeftEnd;
-            @TurnaroundRightStart.started += instance.OnTurnaroundRightStart;
-            @TurnaroundRightStart.performed += instance.OnTurnaroundRightStart;
-            @TurnaroundRightStart.canceled += instance.OnTurnaroundRightStart;
-            @TurnaroundRightEnd.started += instance.OnTurnaroundRightEnd;
-            @TurnaroundRightEnd.performed += instance.OnTurnaroundRightEnd;
-            @TurnaroundRightEnd.canceled += instance.OnTurnaroundRightEnd;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
+            if (instance == null || m_Wrapper.m_OnBikeActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OnBikeActionsCallbackInterfaces.Add(instance);
+            @Accelerate.started += instance.OnAccelerate;
+            @Accelerate.performed += instance.OnAccelerate;
+            @Accelerate.canceled += instance.OnAccelerate;
+            @Steer.started += instance.OnSteer;
+            @Steer.performed += instance.OnSteer;
+            @Steer.canceled += instance.OnSteer;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
-        private void UnregisterCallbacks(IByBikeActions instance)
+        private void UnregisterCallbacks(IOnBikeActions instance)
         {
-            @Drive.started -= instance.OnDrive;
-            @Drive.performed -= instance.OnDrive;
-            @Drive.canceled -= instance.OnDrive;
-            @TurnaroundLeftStart.started -= instance.OnTurnaroundLeftStart;
-            @TurnaroundLeftStart.performed -= instance.OnTurnaroundLeftStart;
-            @TurnaroundLeftStart.canceled -= instance.OnTurnaroundLeftStart;
-            @TurnaroundLeftEnd.started -= instance.OnTurnaroundLeftEnd;
-            @TurnaroundLeftEnd.performed -= instance.OnTurnaroundLeftEnd;
-            @TurnaroundLeftEnd.canceled -= instance.OnTurnaroundLeftEnd;
-            @TurnaroundRightStart.started -= instance.OnTurnaroundRightStart;
-            @TurnaroundRightStart.performed -= instance.OnTurnaroundRightStart;
-            @TurnaroundRightStart.canceled -= instance.OnTurnaroundRightStart;
-            @TurnaroundRightEnd.started -= instance.OnTurnaroundRightEnd;
-            @TurnaroundRightEnd.performed -= instance.OnTurnaroundRightEnd;
-            @TurnaroundRightEnd.canceled -= instance.OnTurnaroundRightEnd;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
+            @Accelerate.started -= instance.OnAccelerate;
+            @Accelerate.performed -= instance.OnAccelerate;
+            @Accelerate.canceled -= instance.OnAccelerate;
+            @Steer.started -= instance.OnSteer;
+            @Steer.performed -= instance.OnSteer;
+            @Steer.canceled -= instance.OnSteer;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
-        public void RemoveCallbacks(IByBikeActions instance)
+        public void RemoveCallbacks(IOnBikeActions instance)
         {
-            if (m_Wrapper.m_ByBikeActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_OnBikeActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IByBikeActions instance)
+        public void SetCallbacks(IOnBikeActions instance)
         {
-            foreach (var item in m_Wrapper.m_ByBikeActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_OnBikeActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_ByBikeActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_OnBikeActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public ByBikeActions @ByBike => new ByBikeActions(this);
-    public interface IByBikeActions
+    public OnBikeActions @OnBike => new OnBikeActions(this);
+
+    // OnFoot
+    private readonly InputActionMap m_OnFoot;
+    private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
+    private readonly InputAction m_OnFoot_Walk;
+    private readonly InputAction m_OnFoot_Look;
+    private readonly InputAction m_OnFoot_SwitchToDrive;
+    private readonly InputAction m_OnFoot_Interact;
+    public struct OnFootActions
     {
-        void OnDrive(InputAction.CallbackContext context);
-        void OnTurnaroundLeftStart(InputAction.CallbackContext context);
-        void OnTurnaroundLeftEnd(InputAction.CallbackContext context);
-        void OnTurnaroundRightStart(InputAction.CallbackContext context);
-        void OnTurnaroundRightEnd(InputAction.CallbackContext context);
+        private @PlayerInputActions m_Wrapper;
+        public OnFootActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Walk => m_Wrapper.m_OnFoot_Walk;
+        public InputAction @Look => m_Wrapper.m_OnFoot_Look;
+        public InputAction @SwitchToDrive => m_Wrapper.m_OnFoot_SwitchToDrive;
+        public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OnFootActions set) { return set.Get(); }
+        public void AddCallbacks(IOnFootActions instance)
+        {
+            if (instance == null || m_Wrapper.m_OnFootActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OnFootActionsCallbackInterfaces.Add(instance);
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @SwitchToDrive.started += instance.OnSwitchToDrive;
+            @SwitchToDrive.performed += instance.OnSwitchToDrive;
+            @SwitchToDrive.canceled += instance.OnSwitchToDrive;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+        }
+
+        private void UnregisterCallbacks(IOnFootActions instance)
+        {
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @SwitchToDrive.started -= instance.OnSwitchToDrive;
+            @SwitchToDrive.performed -= instance.OnSwitchToDrive;
+            @SwitchToDrive.canceled -= instance.OnSwitchToDrive;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+        }
+
+        public void RemoveCallbacks(IOnFootActions instance)
+        {
+            if (m_Wrapper.m_OnFootActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IOnFootActions instance)
+        {
+            foreach (var item in m_Wrapper.m_OnFootActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_OnFootActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public OnFootActions @OnFoot => new OnFootActions(this);
+    public interface IOnBikeActions
+    {
+        void OnAccelerate(InputAction.CallbackContext context);
+        void OnSteer(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IOnFootActions
+    {
+        void OnWalk(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnSwitchToDrive(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

@@ -54,6 +54,8 @@ public class NPC : MonoBehaviour{
 
         popup.enabled = true;
         isPlayerInRange = true;
+ 
+        playerController.npc = this;
     }
 
     void OnTriggerExit(Collider other){
@@ -64,6 +66,8 @@ public class NPC : MonoBehaviour{
         popup.enabled = false;
         isPlayerInRange = false;
         GameManager.Instance.SetActiveNPC(null);
+
+        playerController.npc = null;
     }
 
     private void OnDestroy(){
