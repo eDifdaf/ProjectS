@@ -55,7 +55,7 @@ public class SaveManager : MonoBehaviour
         
     }
     public void LoadGame(){
-        playerTransform.GetComponent<PlayerController>().playerCanMove = false;
+        //TODO: playercanmoveaddpls playerTransform.GetComponent<PlayerController>().playerCanMove = false;
         string json = System.IO.File.ReadAllText(Application.persistentDataPath + "/save.json");
         int checksum = int.Parse(json.Substring(json.LastIndexOf('\n') + 1));
         json = json.Substring(0, json.LastIndexOf('\n'));

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6731379093998871430}
   - component: {fileID: 6051227446492229821}
   - component: {fileID: 1149453028204500971}
-  - component: {fileID: 1002215778471930376}
-  - component: {fileID: 5441997768658140067}
+  - component: {fileID: 49511365034679393}
+  - component: {fileID: 5043438020325508938}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,7 +52,8 @@ MonoBehaviour:
   questManager: {fileID: 6731379093998871430}
   dialogManager: {fileID: 6051227446492229821}
   dayNightManager: {fileID: 1149453028204500971}
-  networkManager: {fileID: 1002215778471930376}
+  saveManager: {fileID: 49511365034679393}
+  playermanager: {fileID: 5043438020325508938}
 --- !u!114 &6731379093998871430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +66,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b347487da4883b4a9a5ae7d4b4e5c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentQuest:
+    id: 0
+    Title: 
+    Description: 
+    objectives: []
+    questGiver: {fileID: 0}
 --- !u!114 &6051227446492229821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,13 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3620d2eaedb9974eb07359c5c6a0cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1200186589962260710, guid: a40126e406714f6459763d1f92864276, type: 2}
   dialogCanvas: {fileID: 0}
   dialogtext: {fileID: 0}
-  _buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  buttons: []
 --- !u!114 &1149453028204500971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,13 +103,12 @@ MonoBehaviour:
   currentTimeOfDay: 0
   timeSpeed: 0.5
   sunLight: {fileID: 0}
-  sunposition: 1
   moonLight: {fileID: 0}
-  moonposition: 1
   timeText: {fileID: 0}
   uiImage: {fileID: 0}
+  currentTime: 0
   isPaused: 0
---- !u!114 &1002215778471930376
+--- !u!114 &49511365034679393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,36 +117,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8696873548956248038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d10a281b07e4b94ab26ff0adbf6a5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunInBackground: 1
-  LogLevel: 1
-  NetworkConfig:
-    ProtocolVersion: 0
-    NetworkTransport: {fileID: 5441997768658140067}
-    PlayerPrefab: {fileID: 1200186589729790199, guid: 2d08c07a8f3aef740a924a13d7fa8976,
-      type: 3}
-    Prefabs:
-      NetworkPrefabsLists:
-      - {fileID: 11400000, guid: 6c0884dffd1133446a1b7127a0a8d472, type: 2}
-    TickRate: 30
-    ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
-    ConnectionData: 
-    EnableTimeResync: 0
-    TimeResyncInterval: 30
-    EnsureNetworkVariableLengthSafety: 0
-    EnableSceneManagement: 1
-    ForceSamePrefabs: 1
-    RecycleNetworkIds: 1
-    NetworkIdRecycleDelay: 120
-    RpcHashSize: 0
-    LoadSceneTimeOut: 120
-    SpawnTimeout: 1
-    EnableNetworkLogs: 1
-    OldPrefabList: []
---- !u!114 &5441997768658140067
+  playerTransform: {fileID: 0}
+--- !u!114 &5043438020325508938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,21 +130,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8696873548956248038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 31cf0db05b75b1d4c99a8322a9e1d21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
-  m_MaxPacketQueueSize: 128
-  m_MaxPayloadSize: 6144
-  m_HeartbeatTimeoutMS: 500
-  m_ConnectTimeoutMS: 1000
-  m_MaxConnectAttempts: 60
-  m_DisconnectTimeoutMS: 30000
-  ConnectionData:
-    Address: 127.0.0.1
-    Port: 7777
-    ServerListenAddress: 127.0.0.1
-  DebugSimulator:
-    PacketDelayMS: 0
-    PacketJitterMS: 0
-    PacketDropRate: 0
+  LallQuests: []
+  LcompletedQuests: 

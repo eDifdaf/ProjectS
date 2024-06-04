@@ -33,7 +33,7 @@ Transform:
   - {fileID: 6410811629092479446}
   - {fileID: 3503887924919569600}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4358168256239849394
 MonoBehaviour:
@@ -54,17 +54,15 @@ MonoBehaviour:
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
   - quests: []
-    location: {fileID: 3574316837490416632, guid: 5236719706e79924689afe6399262924,
-      type: 3}
+    location: {fileID: 0}
     timeOfDay: 00000000
   - quests: []
-    location: {fileID: 3574316837490416632, guid: d7e9f4890e420d244bb4b1a6d318310d,
-      type: 3}
+    location: {fileID: 0}
     timeOfDay: 02000000
   - quests: []
-    location: {fileID: 3574316837490416632, guid: f3471e02447513d46bbbfb7a55caffae,
-      type: 3}
+    location: {fileID: 0}
     timeOfDay: 04000000
+  playerController: {fileID: 0}
 --- !u!135 &9080120787861807895
 SphereCollider:
   m_ObjectHideFlags: 0
