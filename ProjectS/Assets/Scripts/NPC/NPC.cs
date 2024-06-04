@@ -10,17 +10,32 @@ public class NPC : MonoBehaviour{
     [SerializeField] public List<string> goodbyes;
     [SerializeField] private SpriteRenderer popup;
     [SerializeField] public List<LocationQuestPool> locationQuestPool;
+    [SerializeField] private PlayerController playerController;
     private bool isPlayerInRange;
+    private bool inQuest;
     
     public event Action OnPlayerInteract;
     
     private void Start(){
+        inQuest = false;
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
         this.gameObject.SetActive(false);
         OnPlayerInteract += PlayerInteract;
     }
 
+    public void UpdateQuestState(){
+        if (inQuest){
+            inQuest = false;
+        }
+        else{
+            inQuest = true;
+        }
+    }
+
     private void OnTimeChanged(TimeOfDay currentTime){
+        if (inQuest){
+            return;
+        }
         Collider newLocation = null;
         //check if the current time is in the timeOfDay list of any of the locations, if yes set the newLocation to that location
         foreach (LocationQuestPool location in locationQuestPool){

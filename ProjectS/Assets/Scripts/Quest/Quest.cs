@@ -6,8 +6,8 @@ public class Quest{
     public int id;
     public string Title;
     public string Description;
+    public int Reward;
     [SerializeField] QuestObjective[] objectives;
-    [SerializeField] NPC questGiver;
 
     public event Action OnQuestComplete;
     public event Action OnQuestUpdated;

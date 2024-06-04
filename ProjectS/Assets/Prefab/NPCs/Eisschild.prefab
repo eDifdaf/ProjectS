@@ -54,9 +54,9 @@ MonoBehaviour:
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
   - quests: []
-    location: {fileID: 3574316837490416632, guid: d23795d2f7694ac4297bcc9aa99c204e,
-      type: 3}
+    location: {fileID: 0}
     timeOfDay: 0000000001000000020000000300000004000000
+  playerController: {fileID: 0}
 --- !u!135 &9080120787861807895
 SphereCollider:
   m_ObjectHideFlags: 0

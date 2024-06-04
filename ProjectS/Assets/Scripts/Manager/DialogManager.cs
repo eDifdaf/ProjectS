@@ -9,16 +9,16 @@ public class DialogManager : MonoBehaviour{
     [SerializeField] private GameObject player;
     [SerializeField] private Canvas dialogCanvas;
     [SerializeField] private TMP_Text dialogtext;
-    [SerializeField] private List<TMP_Text> _buttons;
+    [SerializeField] private List<TMP_Text> buttons;
     private WaitForSeconds wait = new WaitForSeconds(0.05f);
     public bool IsEnabled => dialogCanvas.enabled;
 
     public void StartDialog(NPC npc){
         currNPC = npc;
         StartCoroutine(ShowText(currNPC.greetings[0]));
-        _buttons[0].SetText("Give me a quest");
-        _buttons[1].SetText("Tell me about you");
-        _buttons[2].SetText("I don't need anything, bye");
+        buttons[0].SetText("Give me a quest");
+        buttons[1].SetText("Tell me about you");
+        buttons[2].SetText("I don't need anything, bye");
     }
 
     public void HideUI(){

@@ -61,16 +61,8 @@ MonoBehaviour:
       - {fileID: 0}
       questGiver: {fileID: 4358168256239849394}
     location: {fileID: 0}
-    timeOfDay: 
-  - quests:
-    - id: 0
-      Title: hallo
-      Description: bring bich zu point 1
-      objectives:
-      - {fileID: 0}
-      questGiver: {fileID: 4358168256239849394}
-    location: {fileID: 0}
-    timeOfDay: 
+    timeOfDay: 0000000001000000020000000300000004000000
+  playerController: {fileID: 0}
 --- !u!135 &9080120787861807895
 SphereCollider:
   m_ObjectHideFlags: 0
