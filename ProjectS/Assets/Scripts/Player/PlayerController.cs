@@ -52,5 +52,6 @@ public class PlayerController : MonoBehaviour
         playerInputActions.Disable();
         playerInputActions.OnBike.Interact.Disable();
     }
+
     #endregion
 }

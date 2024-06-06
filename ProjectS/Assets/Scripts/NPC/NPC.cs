@@ -2,66 +2,82 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
-{
-    [SerializeField] public string npcName; 
-    [SerializeField] public NPCData npcData;
+public class NPC : MonoBehaviour{
+    
+    [SerializeField] public string npcName;
+    [SerializeField] public string story;
+    [SerializeField] public List<string> greetings;
+    [SerializeField] public List<string> goodbyes;
     [SerializeField] private SpriteRenderer popup;
-    [SerializeField] public LocationQuestPool[] locationQuestPool;
-    private bool isPlayerInRange;
+    [SerializeField] public List<LocationQuestPool> locationQuestPool;
     [SerializeField] private PlayerController playerController;
-
-
-    private void Start() {
+    private bool isPlayerInRange;
+    private bool inQuest;
+    
+    public event Action OnPlayerInteract;
+    
+    private void Start(){
+        inQuest = false;
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
         this.gameObject.SetActive(false);
-
+        OnPlayerInteract += PlayerInteract;
     }
 
-    private void OnTimeChanged(NPCData.TimeOfDay obj) {
+    public void UpdateQuestState(){
+        if (inQuest){
+            inQuest = false;
+        }
+        else{
+            inQuest = true;
+        }
+    }
 
-        LocationQuestPool newLocation = null;
-        foreach (var location in locationQuestPool) {
-            if (location.timeOfDay == obj) {
-                newLocation = location;
+    private void OnTimeChanged(TimeOfDay currentTime){
+        if (inQuest){
+            return;
+        }
+        Collider newLocation = null;
+        //check if the current time is in the timeOfDay list of any of the locations, if yes set the newLocation to that location
+        foreach (LocationQuestPool location in locationQuestPool){
+            if (location.timeOfDay.Contains(currentTime)){
+                newLocation = location.location;
+                break;
             }
         }
 
-        if (newLocation == null) {
+        if (newLocation == null){
+            //this.gameObject.transform.position = new Vector3(0f, 0f, 0f);
             this.gameObject.SetActive(false);
             return;
         }
-        
-        this.transform.position = newLocation.location.bounds.center;
+
+        this.transform.position = newLocation.bounds.center;
         this.gameObject.SetActive(true);
     }
-
-    public void PlayerInteract()
-    {
-        if (isPlayerInRange && GameManager.Instance.DialogManager.IsEnabled == false) {
+    
+    public void PlayerInteract(){
+        if (isPlayerInRange && GameManager.Instance.DialogManager.IsEnabled == false){
             GameManager.Instance.SetActiveNPC(this);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other){
         Debug.Log("Player entered the trigger");
-        if(!other.CompareTag("Player"))
-        {
+        if (!other.CompareTag("Player")){
             return;
         }
+
         popup.enabled = true;
         isPlayerInRange = true;
  
         playerController.npc = this;
     }
-    
-    void OnTriggerExit(Collider other)
-    {
-        if(!other.CompareTag("Player"))
-        {
+
+    void OnTriggerExit(Collider other){
+        if (!other.CompareTag("Player")){
             return;
         }
+
         popup.enabled = false;
         isPlayerInRange = false;
         GameManager.Instance.SetActiveNPC(null);
@@ -69,7 +85,7 @@ public class NPC : MonoBehaviour
         playerController.npc = null;
     }
 
-    private void OnDestroy() {
+    private void OnDestroy(){
         GameManager.Instance.DayNightManager.OnTimeChanged -= OnTimeChanged;
     }
 }
