@@ -28,10 +28,19 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""237b9926-1a35-43b9-b927-369176b0863b"",
             ""actions"": [
                 {
-                    ""name"": ""Accelerate"",
-                    ""type"": ""Value"",
+                    ""name"": ""Drive"",
+                    ""type"": ""Button"",
                     ""id"": ""53c0675d-01ed-42f4-88d9-be3ce060ea9f"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Break"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e452ab0-619e-40fe-a420-c13681f69bd6"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -145,37 +154,48 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""WS"",
-                    ""id"": ""57be15be-84ef-4b56-822e-c778130f813e"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""415cfbff-b4ae-4b74-ab0d-ac7750bc9b87"",
+                    ""name"": """",
+                    ""id"": ""cb633479-e2ea-4917-9c9f-e09f3b6d3e14"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Drive"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""728e794a-3046-4932-ad2f-be3f16ff88b4"",
+                    ""name"": """",
+                    ""id"": ""617f3e5c-485d-4e38-b6a7-0dda9c07519d"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49e4ac16-8870-4b51-97e9-d4e81049fd09"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Accelerate"",
+                    ""action"": ""Break"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""207b3db5-24c0-4c7e-adfa-676eddf2ff02"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Break"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -404,7 +424,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 }");
         // OnBike
         m_OnBike = asset.FindActionMap("OnBike", throwIfNotFound: true);
-        m_OnBike_Accelerate = m_OnBike.FindAction("Accelerate", throwIfNotFound: true);
+        m_OnBike_Drive = m_OnBike.FindAction("Drive", throwIfNotFound: true);
+        m_OnBike_Break = m_OnBike.FindAction("Break", throwIfNotFound: true);
         m_OnBike_Steer = m_OnBike.FindAction("Steer", throwIfNotFound: true);
         m_OnBike_Interact = m_OnBike.FindAction("Interact", throwIfNotFound: true);
         // OnFoot
@@ -474,14 +495,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // OnBike
     private readonly InputActionMap m_OnBike;
     private List<IOnBikeActions> m_OnBikeActionsCallbackInterfaces = new List<IOnBikeActions>();
-    private readonly InputAction m_OnBike_Accelerate;
+    private readonly InputAction m_OnBike_Drive;
+    private readonly InputAction m_OnBike_Break;
     private readonly InputAction m_OnBike_Steer;
     private readonly InputAction m_OnBike_Interact;
     public struct OnBikeActions
     {
         private @PlayerInputActions m_Wrapper;
         public OnBikeActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Accelerate => m_Wrapper.m_OnBike_Accelerate;
+        public InputAction @Drive => m_Wrapper.m_OnBike_Drive;
+        public InputAction @Break => m_Wrapper.m_OnBike_Break;
         public InputAction @Steer => m_Wrapper.m_OnBike_Steer;
         public InputAction @Interact => m_Wrapper.m_OnBike_Interact;
         public InputActionMap Get() { return m_Wrapper.m_OnBike; }
@@ -493,9 +516,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_OnBikeActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_OnBikeActionsCallbackInterfaces.Add(instance);
-            @Accelerate.started += instance.OnAccelerate;
-            @Accelerate.performed += instance.OnAccelerate;
-            @Accelerate.canceled += instance.OnAccelerate;
+            @Drive.started += instance.OnDrive;
+            @Drive.performed += instance.OnDrive;
+            @Drive.canceled += instance.OnDrive;
+            @Break.started += instance.OnBreak;
+            @Break.performed += instance.OnBreak;
+            @Break.canceled += instance.OnBreak;
             @Steer.started += instance.OnSteer;
             @Steer.performed += instance.OnSteer;
             @Steer.canceled += instance.OnSteer;
@@ -506,9 +532,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IOnBikeActions instance)
         {
-            @Accelerate.started -= instance.OnAccelerate;
-            @Accelerate.performed -= instance.OnAccelerate;
-            @Accelerate.canceled -= instance.OnAccelerate;
+            @Drive.started -= instance.OnDrive;
+            @Drive.performed -= instance.OnDrive;
+            @Drive.canceled -= instance.OnDrive;
+            @Break.started -= instance.OnBreak;
+            @Break.performed -= instance.OnBreak;
+            @Break.canceled -= instance.OnBreak;
             @Steer.started -= instance.OnSteer;
             @Steer.performed -= instance.OnSteer;
             @Steer.canceled -= instance.OnSteer;
@@ -604,7 +633,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public OnFootActions @OnFoot => new OnFootActions(this);
     public interface IOnBikeActions
     {
-        void OnAccelerate(InputAction.CallbackContext context);
+        void OnDrive(InputAction.CallbackContext context);
+        void OnBreak(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
