@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Playermanager : MonoBehaviour
 {
+    public GameObject player;
     public List<string> LallQuests;
     public Dictionary<int, bool> DcompletedQuests;
     public List<bool> LcompletedQuests;

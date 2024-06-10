@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour{
 
     private void Start(){
         dialogManager.HideUI();
-        //saveManager.LoadGame();
+        saveManager.LoadGame();
     }
 
     public void SetActiveNPC(NPC npc){

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     public NPC npc;
     public Sender sender;
+    public PauseMenu pauseMenu;
     
     private void Awake()
     {
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
         //Interactions
         playerInputActions.OnBike.Interact.performed += ctx => npc.PlayerInteract();
         playerInputActions.OnBike.Interact.performed += ctx => sender.PlayerInteract();
+        
+        playerInputActions.OnBike.Pause.performed += ctx => pauseMenu.TogglePause();
     }
 
 

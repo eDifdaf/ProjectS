@@ -17,27 +17,28 @@ public class SaveManager : MonoBehaviour
     }
     
     
-    private void SaveGame()
+    public void SaveGame()
     {
         SaveData saveData = new SaveData();
         
         //player data
         saveData.player.position = playerTransform.transform.position;
         saveData.player.rotation = playerTransform.transform.rotation;
-        /*saveData.player.onBike = false;
-        saveData.player.money = 0;
+        saveData.player.money = GameManager.Instance.Playermanager.player.GetComponent<Currency>().CurrentcyCount;
         saveData.player.currentRadio = ERadioStations.None;
         
         saveData.unlocksData.bike.color = EPlayerColor.Red;
+        //ahhhhhhh wo ist das 
         saveData.unlocksData.bike.gear.acceleration = 0;
         saveData.unlocksData.bike.gear.speed = 0;
         
+        //haben wir nicht, geil
         saveData.unlocksData.garage.trophies = new List<bool>();
         saveData.unlocksData.garage.cosmetic = new List<bool>();
         
+        //eben so
         saveData.unlocksData.unlockedRadios = new List<bool>();
         
-        */
         saveData.questsData.activeQuests = GameManager.Instance.QuestManager.currentQuest;
         saveData.questsData.completedQuests = GameManager.Instance.Playermanager.LcompletedQuests;
         

@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool IsPaused;
     public GameObject pauseUI;
-    void Update()
+    public void TogglePause()
     {
-        if (true){ //get input
-            if (IsPaused){
-                Resume();
-            }
-            else{
-                Pause();
-            }
+        if (IsPaused)
+        {
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
     public void Resume(){
@@ -37,7 +37,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitGame(){
         Time.timeScale = 1f;
-        //SceneManager.LoadScene("Main_Menu");
+        GameManager.Instance.SaveManager.SaveGame();
+        SceneManager.LoadScene("MainMenu");
     }
     public void OnDestroy()
     {
