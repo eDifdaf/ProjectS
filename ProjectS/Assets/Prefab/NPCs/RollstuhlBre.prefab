@@ -57,16 +57,18 @@ MonoBehaviour:
     - id: 0
       Title: Home sweet home
       Description: Bring mich zur Kirche
-      Reward: 0
+      rewardIsFish: 0
+      Reward: 5
       objectives:
       - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 0000000002000000
   - quests:
-    - id: 0
-      Title: 
+    - id: 8
+      Title: "M\xFClltrennung"
       Description: 
-      Reward: 0
+      rewardIsFish: 0
+      Reward: 5
       objectives:
       - {fileID: 0}
     location: {fileID: 0}

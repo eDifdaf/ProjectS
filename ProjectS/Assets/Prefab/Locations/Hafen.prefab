@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3355524698521687027}
   - component: {fileID: 3574316837490416632}
-  - component: {fileID: 1065906859911244134}
+  - component: {fileID: 4733952325506518572}
   m_Layer: 0
-  m_Name: Spielplatz
+  m_Name: Hafen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ CapsuleCollider:
   m_Height: 25
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1065906859911244134
+--- !u!114 &4733952325506518572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

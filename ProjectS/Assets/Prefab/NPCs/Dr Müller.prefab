@@ -53,10 +53,24 @@ MonoBehaviour:
   goodbyes: []
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
-  - quests: []
+  - quests:
+    - id: 4
+      Title: Besser dort
+      Description: 
+      rewardIsFish: 0
+      Reward: 8
+      objectives:
+      - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 02000000
-  - quests: []
+  - quests:
+    - id: 11
+      Title: Gesundheitscheck
+      Description: 
+      rewardIsFish: 0
+      Reward: 10
+      objectives:
+      - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 00000000
   playerController: {fileID: 0}
