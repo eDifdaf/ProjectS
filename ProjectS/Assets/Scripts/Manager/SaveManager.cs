@@ -66,7 +66,8 @@ public class SaveManager : MonoBehaviour
             Debug.LogError("Save file is corrupted");
             return;
         }
-
+        GameManager.Instance.player.GetComponent<PlayerController>().enabled = false;
+        GameManager.Instance.player.GetComponent<PlayerMotor>().enabled = false;
         playerTransform.GetComponent<PlayerController>();
         SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 
@@ -79,5 +80,11 @@ public class SaveManager : MonoBehaviour
             GameManager.Instance.Playermanager.DcompletedQuests.Add(i, GameManager.Instance.Playermanager.LcompletedQuests[i]);
         }
         
+        
+        
+        
+        
+        GameManager.Instance.player.GetComponent<PlayerController>().enabled = true;
+        GameManager.Instance.player.GetComponent<PlayerMotor>().enabled = true;
     }
 }

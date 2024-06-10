@@ -1,54 +1,87 @@
 using System;
 using UnityEngine;
+
 using UnityEngine.Serialization;
 using TMPro;
+using UnityEditor;
 
 public class PlayerMotor : MonoBehaviour
 {
-    // maxPower values
-    [SerializeField] private float maxForcePower, maxAngle;
-    // Input values -1 to 1
-    [SerializeField] public float currentAngle;
-    [SerializeField] public float forcePower;
-    [SerializeField] private WheelCollider frontWheelCollider, backWheelCollider;
-    [SerializeField] private Transform frontWheel, backWheel;
-    [SerializeField] public Rigidbody bikeRb;
-    [SerializeField] private float leanAngle;
-    [SerializeField] public GameObject bike;
-    public TextMeshProUGUI textForce;
-    public TextMeshProUGUI textSpeed;
-
+    #region Changable values
+    [Header("Maximal Geschwindigkeiten")]
+    [SerializeField] private float maxDrivingForce, maxBreakingForce;
     
+    [Header("Kurven Winkel")]
+    [SerializeField] private float maxHorizontalAngle = 45f;
+    
+    [Header("Hinterrad Rotation = WheelColliderSpeed / diesen Value")]
+    [SerializeField] private float backWheelRotationDividend = 30f;
+    #endregion
+
+    #region Inputs
+    [NonSerialized] public float breakInput, driveInput, steerInput;
+    #endregion
+
+    #region Static Variables
+    [SerializeField] private WheelCollider frontWheelCollider, backWheelCollider;
+    [SerializeField] private Transform backWheelTransform;
+    #endregion
+
+
     
     private void FixedUpdate()
     {
         Drive();
+        KeepUpright();
         Steer();
-        textForce.text = backWheelCollider.motorTorque.ToString();
-        textSpeed.text = bikeRb.velocity.ToString();
+        Break();
+        WheelRotationUpdate();
     }
+
+
+    #region Driving
     
     public void Drive()
     {
-        backWheelCollider.motorTorque = maxForcePower * forcePower;
+        backWheelCollider.motorTorque = maxDrivingForce * driveInput;
     }
+    public void Break()
+    {
+        backWheelCollider.brakeTorque = maxBreakingForce * breakInput;
+    }
+    #endregion
+
+    #region Steering
     
     public void Steer()
     {
-        frontWheelCollider.steerAngle = maxAngle * currentAngle;
-
-        /*bike.transform.eulerAngles.y = maxAngle * currentAngle;*/
+        frontWheelCollider.steerAngle = maxHorizontalAngle * steerInput;
     }
     
-    //todo
-    /*private void ApplyForceToBikeRigidbody()
+    #endregion
+    
+    
+
+    #region WheelRotationUpdate
+
+    private void WheelRotationUpdate()
     {
-        bikeRb.velocity =
-    } */
+        //Set the X-Rotation of the backWheelTransform to the X-Rotation of the backWheelCollider divided by the backWheelRotationDividend
+        backWheelTransform.Rotate(new Vector3(0, 0, -backWheelCollider.rotationSpeed/backWheelRotationDividend));
+    }
     
+    #endregion
 
+    #region FixingBikeRotation
     
-
-
-
+    private void KeepUpright()
+    {
+        //Set the rotation to keep the bike upright while Driving and Steering
+        Quaternion currentRotation = transform.rotation;
+        Vector3 currentEulerAngles = currentRotation.eulerAngles;
+        currentEulerAngles.z = 0; //Set the Z rotation to zero
+        transform.rotation = Quaternion.Euler(currentEulerAngles);
+    }
+    
+    #endregion
 }
