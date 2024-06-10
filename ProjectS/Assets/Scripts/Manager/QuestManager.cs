@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour{
     public Quest currentQuest;
+    public Quest areaQuest;
 
     public void AssignQuests(Quest quest){
         if (currentQuest == quest){

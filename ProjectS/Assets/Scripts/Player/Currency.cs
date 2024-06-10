@@ -21,4 +21,8 @@ public class Currency : MonoBehaviour
     {
         CurrentcyCount += amount;
     }
+    public void AddCurrency(int amount)
+    {
+        CurrentcyCount += amount;
+    }
 }

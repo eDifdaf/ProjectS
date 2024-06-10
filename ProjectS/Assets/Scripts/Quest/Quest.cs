@@ -6,6 +6,7 @@ public class Quest{
     public int id;
     public string Title;
     public string Description;
+    public bool rewardIsFish;
     public int Reward;
     [SerializeField] QuestObjective[] objectives;
 
@@ -31,6 +32,7 @@ public class Quest{
 
     public void StartQuest(){
         foreach (var questObjective in objectives){
+            questObjective.IsActive = true;
             questObjective.OnStart();
             questObjective.OnObjectiveComplete += OnObjectiveComplete;
         }

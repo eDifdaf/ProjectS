@@ -14,13 +14,10 @@ public class NPC : MonoBehaviour{
     private bool isPlayerInRange;
     private bool inQuest;
     
-    public event Action OnPlayerInteract;
-    
     private void Start(){
         inQuest = false;
         GameManager.Instance.DayNightManager.OnTimeChanged += OnTimeChanged;
         this.gameObject.SetActive(false);
-        OnPlayerInteract += PlayerInteract;
     }
 
     public void UpdateQuestState(){
@@ -60,17 +57,17 @@ public class NPC : MonoBehaviour{
             GameManager.Instance.SetActiveNPC(this);
         }
     }
-
+    
     private void OnTriggerEnter(Collider other){
-        Debug.Log("Player entered the trigger");
+        //Debug.Log("Player entered the trigger");
         if (!other.CompareTag("Player")){
             return;
         }
-
         popup.enabled = true;
         isPlayerInRange = true;
- 
+
         playerController.npc = this;
+
     }
 
     void OnTriggerExit(Collider other){

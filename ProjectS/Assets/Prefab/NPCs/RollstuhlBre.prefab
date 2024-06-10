@@ -55,11 +55,20 @@ MonoBehaviour:
   locationQuestPool:
   - quests:
     - id: 0
-      Title: 
-      Description: 
+      Title: Home sweet home
+      Description: Bring mich zur Kirche
+      Reward: 0
       objectives:
       - {fileID: 0}
-      questGiver: {fileID: 4358168256239849394}
+    location: {fileID: 0}
+    timeOfDay: 0000000002000000
+  - quests:
+    - id: 0
+      Title: 
+      Description: 
+      Reward: 0
+      objectives:
+      - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 0000000002000000
   playerController: {fileID: 0}
