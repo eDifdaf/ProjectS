@@ -19,7 +19,7 @@ public class PlayerMotor : MonoBehaviour
     #endregion
 
     #region Inputs
-    [NonSerialized] public float breakInput, driveInput, steerInput;
+    [SerializeField] public float breakInput, driveInput, steerInput;
     #endregion
 
     #region Static Variables

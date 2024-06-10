@@ -12,5 +12,8 @@ public class Playermanager : MonoBehaviour
         LallQuests = new List<string>(32);
         DcompletedQuests = new Dictionary<int, bool>(32);
         LcompletedQuests = new List<bool>(32);
+        for(int i = 0; i < LcompletedQuests.Count; i++){
+            LcompletedQuests[i] = false;
+        }
     }
 }

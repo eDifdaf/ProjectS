@@ -30,15 +30,13 @@ public class PauseMenu : MonoBehaviour
         IsPaused = true;
         Cursor.lockState = CursorLockMode.None;
     }
-
-    public void LoadMenu(){
-        Time.timeScale = 1f;
-        //SceneManager.LoadScene("Settings"); 
-    }
     public void QuitGame(){
         Time.timeScale = 1f;
         GameManager.Instance.SaveManager.SaveGame();
         SceneManager.LoadScene("MainMenu");
+    }
+    public void Save(){
+        GameManager.Instance.SaveManager.SaveGame();
     }
     public void OnDestroy()
     {
