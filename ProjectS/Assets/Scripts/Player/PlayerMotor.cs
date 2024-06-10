@@ -1,15 +1,14 @@
-using System;
 using UnityEngine;
-
-using UnityEngine.Serialization;
-using TMPro;
-using UnityEditor;
 
 public class PlayerMotor : MonoBehaviour
 {
     #region Changable values
-    [Header("Maximal Geschwindigkeiten")]
-    [SerializeField] private float maxDrivingForce, maxBreakingForce;
+
+    [Header("Maximal Geschwindigkeiten")] 
+    [SerializeField] private float maxDrivingForce = 1000f;
+
+    [Header("Maximal Bremsstärke")] 
+    [SerializeField] private float maxBreakingForce = 40000f;
     
     [Header("Kurven Winkel")]
     [SerializeField] private float maxHorizontalAngle = 45f;
@@ -26,15 +25,44 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private WheelCollider frontWheelCollider, backWheelCollider;
     [SerializeField] private Transform backWheelTransform;
     #endregion
+    
+    #region Upgrades
+    [SerializeField] private ESpeedUpgrades currentUpgrade = ESpeedUpgrades.BaseUpgrade;
+    public enum ESpeedUpgrades
+    {
+        BaseUpgrade,
+        FirstUpgrade,
+        SecondUpgrade,
+        LastUpgrade
+    }
+ 
+    public float GetItemRarityPercentage(ESpeedUpgrades rarity)
+    {
+        switch (rarity)
+        {
+            case ESpeedUpgrades.BaseUpgrade :
+                return 1;
+            case ESpeedUpgrades.FirstUpgrade :
+                return (float)1.5;
+            case ESpeedUpgrades.SecondUpgrade :
+                return (float)1.75;
+            case ESpeedUpgrades.LastUpgrade :
+                return 2;
+        }
+
+        return 0;
+    }
+    #endregion
 
 
     
     private void FixedUpdate()
     {
+        
         Drive();
+        Break();
         KeepUpright();
         Steer();
-        Break();
         WheelRotationUpdate();
     }
 
@@ -43,12 +71,13 @@ public class PlayerMotor : MonoBehaviour
     
     public void Drive()
     {
-        backWheelCollider.motorTorque = maxDrivingForce * driveInput;
+        backWheelCollider.motorTorque = maxDrivingForce * driveInput * GetItemRarityPercentage(currentUpgrade);
     }
     public void Break()
     {
-        backWheelCollider.brakeTorque = maxBreakingForce * breakInput;
+        backWheelCollider.brakeTorque = maxBreakingForce * breakInput * GetItemRarityPercentage(currentUpgrade);
     }
+    
     #endregion
 
     #region Steering

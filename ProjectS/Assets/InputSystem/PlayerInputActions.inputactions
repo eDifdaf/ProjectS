@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "Drive",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "5249e6d1-6698-4487-893c-3dec431ca10c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Break",
@@ -54,19 +54,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "dbfd5758-1da3-462f-b53b-b7a9f742b09d",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drive",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b6841182-2d10-4ba3-9d5b-1769eec4e7aa",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -139,6 +128,39 @@
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "WS",
+                    "id": "a88fcc78-a362-4ee1-85e0-5c8b92e6cede",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "f2cd1955-3d01-4d8e-8024-4a6501fe30dd",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "16390edd-faa8-450e-9ccf-0539ffb20fff",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drive",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

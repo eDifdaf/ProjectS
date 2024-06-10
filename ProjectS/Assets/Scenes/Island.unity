@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.03815, g: 324.65378, b: 429.69086, a: 1}
+  m_IndirectSpecularColor: {r: 262.1177, g: 324.74368, b: 429.81012, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -20844,6 +20844,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 2427842640992804718, guid: e68a9bde2e1c76c48ad9df86b1721df4,
+        type: 3}
+      propertyPath: driveInput
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427842640992804718, guid: e68a9bde2e1c76c48ad9df86b1721df4,
+        type: 3}
+      propertyPath: maxDrivingForce
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6285832061213158642, guid: e68a9bde2e1c76c48ad9df86b1721df4,
         type: 3}
       propertyPath: m_RootOrder
@@ -20857,7 +20867,7 @@ PrefabInstance:
     - target: {fileID: 6285832061213158642, guid: e68a9bde2e1c76c48ad9df86b1721df4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 68.37
+      value: 122.28
       objectReference: {fileID: 0}
     - target: {fileID: 6285832061213158642, guid: e68a9bde2e1c76c48ad9df86b1721df4,
         type: 3}

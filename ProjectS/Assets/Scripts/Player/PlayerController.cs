@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         
         //Acceleration
-        playerInputActions.OnBike.Drive.performed += ctx => playerMotor.driveInput = ctx.ReadValue<float>();
-        playerInputActions.OnBike.Drive.canceled += ctx => playerMotor.driveInput = ctx.ReadValue<float>();
+        playerInputActions.OnBike.Drive.performed += ctx => playerMotor.driveInput = ctx.ReadValue<Vector2>().y;
+        playerInputActions.OnBike.Drive.canceled += ctx => playerMotor.driveInput = ctx.ReadValue<Vector2>().y;
 
         playerInputActions.OnBike.Break.performed += ctx => playerMotor.breakInput = ctx.ReadValue<float>();
         playerInputActions.OnBike.Break.canceled += ctx => playerMotor.breakInput = ctx.ReadValue<float>();
-        
+
         
         //Steering
         playerInputActions.OnBike.Steer.performed += ctx => playerMotor.steerInput = ctx.ReadValue<Vector2>().x;
