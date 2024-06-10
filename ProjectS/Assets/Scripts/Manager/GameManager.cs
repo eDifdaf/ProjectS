@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour{
     [SerializeField] private DayNightManager dayNightManager;
     [SerializeField] private SaveManager saveManager;
     [SerializeField] private Playermanager playermanager;
+    public GameObject player;
 
     public DayNightManager DayNightManager => dayNightManager;
     public QuestManager QuestManager => questManager;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour{
 
     private void Start(){
         dialogManager.HideUI();
-        //saveManager.LoadGame();
+        saveManager.LoadGame();
     }
 
     public void SetActiveNPC(NPC npc){

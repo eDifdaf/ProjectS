@@ -36,8 +36,18 @@ public class DialogManager : MonoBehaviour{
     }
 
     public void Button1(){
-        GameManager.Instance.QuestManager.AssignQuests(currNPC.locationQuestPool[0].quests[0]);
-        StartCoroutine(ShowText(currNPC.locationQuestPool[0].quests[0].Description));
+        //TODO all location quest pools
+        foreach (Quest quest in currNPC.locationQuestPool[0].quests){
+            if (GameManager.Instance.Playermanager.LcompletedQuests[quest.id]){
+                continue;
+            }
+            if (GameManager.Instance.QuestManager.currentQuest == quest){
+                continue;
+            }
+            GameManager.Instance.QuestManager.AssignQuests(quest);
+            StartCoroutine(ShowText(quest.Description));
+            return;
+        }
     }
 
     public void Button2(){
@@ -45,7 +55,8 @@ public class DialogManager : MonoBehaviour{
     }
 
     public void Button3(){
-        StartCoroutine(Goodbye(currNPC.goodbyes[0]));
+        int random = Random.Range(0, currNPC.goodbyes.Count);
+        StartCoroutine(Goodbye(currNPC.goodbyes[random]));
     }
 
     IEnumerator Goodbye(string fullText){

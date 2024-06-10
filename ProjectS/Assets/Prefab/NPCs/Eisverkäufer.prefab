@@ -53,7 +53,13 @@ MonoBehaviour:
   goodbyes: []
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
-  - quests: []
+  - quests:
+    - id: 3
+      Title: Zwangskundschaft
+      Description: 
+      rewardIsFish: 0
+      Reward: 0
+      objectives: []
     location: {fileID: 0}
     timeOfDay: 01000000
   playerController: {fileID: 0}

@@ -72,3 +72,7 @@ crashlytics-build.properties
 [Aa]ssets/[Ss]treamingAssets/aa/*
 
 ProjectS/.idea/
+
+ProjectS/Assets/EasyRoads3D.meta
+
+ProjectS/Assets/EasyRoads3D/

@@ -17,7 +17,6 @@ public class DayNightManager : MonoBehaviour{
     public Light moonLight;
 
     [SerializeField] private TMP_Text timeText;
-    [SerializeField] private Image uiImage;
     public event Action<TimeOfDay> OnTimeChanged;
     public TimeOfDay currentTime;
     public bool isPaused;
@@ -68,7 +67,6 @@ public class DayNightManager : MonoBehaviour{
     
         timeText.text = currentTime.ToString();
         sunLight.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 15f) - 90, 170, 0);
-        uiImage.color = Color.Lerp(Color.black, Color.white, currentTimeOfDay / 24f);
     }
 
     private void UpdateLight()
@@ -97,7 +95,7 @@ public class DayNightManager : MonoBehaviour{
             moonLight.enabled = true;
             sunLight.transform.rotation = Quaternion.Euler(170f,0f, 0f); // Adjust these values
         }
-        else // Night
+        else
         {
             sunLight.enabled = false;
             moonLight.enabled = true;

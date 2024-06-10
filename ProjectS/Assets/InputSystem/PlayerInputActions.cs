@@ -25,22 +25,31 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""OnBike"",
-            ""id"": ""237b9926-1a35-43b9-b927-369176b0863b"",
+            ""id"": ""f47be93d-ada9-4fd7-a72d-d74abf9218ea"",
             ""actions"": [
                 {
-                    ""name"": ""Accelerate"",
-                    ""type"": ""Value"",
-                    ""id"": ""53c0675d-01ed-42f4-88d9-be3ce060ea9f"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Drive"",
+                    ""type"": ""Button"",
+                    ""id"": ""5249e6d1-6698-4487-893c-3dec431ca10c"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Break"",
+                    ""type"": ""Button"",
+                    ""id"": ""6595ecee-f30d-4b54-819d-368125bd102b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Steer"",
-                    ""type"": ""Button"",
-                    ""id"": ""32dbd7f8-a43a-4104-91ac-39d038e55e8d"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""e5b75ff3-2086-4d62-b52f-6c7e28db44a2"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -48,18 +57,82 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
-                    ""id"": ""fc342ba2-59bf-4b69-953e-f8b9ea9db4fa"",
+                    ""id"": ""0dc20f23-cf63-4e19-aef5-b2d06c8a6d26"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c0a484d-4ea0-49a1-be97-ff547c4ad488"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""34434748-2ef1-46fc-b2bc-fde9ce999b84"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""dbfd5758-1da3-462f-b53b-b7a9f742b09d"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Drive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6841182-2d10-4ba3-9d5b-1769eec4e7aa"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Break"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""AD"",
+                    ""id"": ""d197fb02-0eee-4dfc-a51b-1a5585932925"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""3d695a0f-bf6e-4f59-8340-5a6c92e8ff42"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""2136620a-393e-4b31-ae9c-5ff6adb93842"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""618783de-15ad-4559-9ee5-54d2abc90905"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -69,331 +142,23 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""717b96f9-2bc1-4af4-9f73-4660c0f593ca"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""id"": ""b342b404-4383-4333-8df4-043a82d0135a"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WS"",
-                    ""id"": ""5fc8cbd6-326d-433c-aeb7-d16bc1b68930"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""dca42d37-c5cd-40b2-aa88-bf08051e78f1"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""70719059-cf50-4798-8104-b4adc83b9f77"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Joystick"",
-                    ""id"": ""9d1b0fb0-c2bc-4462-bdda-801b573fc817"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""873993d1-d3a6-4841-bad0-986cc50ddb14"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""9681be38-8d26-4cc7-bcfd-152621b839af"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""WS"",
-                    ""id"": ""57be15be-84ef-4b56-822e-c778130f813e"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""415cfbff-b4ae-4b74-ab0d-ac7750bc9b87"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""728e794a-3046-4932-ad2f-be3f16ff88b4"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accelerate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""OnFoot"",
-            ""id"": ""23c8a1c1-53d8-4789-8ef5-b67ad197972a"",
-            ""actions"": [
-                {
-                    ""name"": ""Walk"",
-                    ""type"": ""Value"",
-                    ""id"": ""679e976e-4138-445b-8f34-dc8e2799f79a"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Look"",
-                    ""type"": ""Value"",
-                    ""id"": ""d57f9be3-329f-4833-abb4-8839091b7654"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""SwitchToDrive"",
-                    ""type"": ""Button"",
-                    ""id"": ""8a435119-29bd-46ed-a02d-134bce949ff5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""66a448f2-cc1e-4e6c-8ee7-12e787bfcff6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""e2685aad-3205-41aa-bfe5-6c73935959fb"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""9ac22eff-ef79-4a49-8d3d-741c20635b45"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""41cbc3ff-ef14-4031-9609-2159a27557aa"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""e22d3dfc-eeb6-4b9e-a92f-8d7fcfe2d15f"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""78b02d71-0f70-4d51-ae75-451ff92ed388"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Joystick"",
-                    ""id"": ""6845c122-6460-4200-988c-4364a61afbf7"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""7e3581c7-8d48-4ae9-90cb-e012ea0bd79a"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""fdaf3650-b17a-4bc9-926b-746a339b8fd3"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""5d65731d-267c-4f15-9dbf-156b70d92671"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""66c082e7-ceed-4e5d-9dee-2c5078f3390b"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5ac753a2-0bc0-426a-8262-bcf451b9015a"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2fca932f-58fa-4a67-ac0c-240ce48c9e5b"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": """",
+                    ""id"": ""c128281f-2a94-43b0-8b78-4501ae001284"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8cc4550b-e563-43bc-9ed9-5c639254cbc8"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchToDrive"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""71e54a05-62f7-4bc4-a89c-92c904536813"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SwitchToDrive"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7641544d-0b2f-4dca-a3fa-bd9efa22147e"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9cfa82f8-d397-4a51-98c3-0852aa83dc8b"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -404,15 +169,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
 }");
         // OnBike
         m_OnBike = asset.FindActionMap("OnBike", throwIfNotFound: true);
-        m_OnBike_Accelerate = m_OnBike.FindAction("Accelerate", throwIfNotFound: true);
+        m_OnBike_Drive = m_OnBike.FindAction("Drive", throwIfNotFound: true);
+        m_OnBike_Break = m_OnBike.FindAction("Break", throwIfNotFound: true);
         m_OnBike_Steer = m_OnBike.FindAction("Steer", throwIfNotFound: true);
         m_OnBike_Interact = m_OnBike.FindAction("Interact", throwIfNotFound: true);
-        // OnFoot
-        m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
-        m_OnFoot_Walk = m_OnFoot.FindAction("Walk", throwIfNotFound: true);
-        m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
-        m_OnFoot_SwitchToDrive = m_OnFoot.FindAction("SwitchToDrive", throwIfNotFound: true);
-        m_OnFoot_Interact = m_OnFoot.FindAction("Interact", throwIfNotFound: true);
+        m_OnBike_Pause = m_OnBike.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -474,16 +235,20 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // OnBike
     private readonly InputActionMap m_OnBike;
     private List<IOnBikeActions> m_OnBikeActionsCallbackInterfaces = new List<IOnBikeActions>();
-    private readonly InputAction m_OnBike_Accelerate;
+    private readonly InputAction m_OnBike_Drive;
+    private readonly InputAction m_OnBike_Break;
     private readonly InputAction m_OnBike_Steer;
     private readonly InputAction m_OnBike_Interact;
+    private readonly InputAction m_OnBike_Pause;
     public struct OnBikeActions
     {
         private @PlayerInputActions m_Wrapper;
         public OnBikeActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Accelerate => m_Wrapper.m_OnBike_Accelerate;
+        public InputAction @Drive => m_Wrapper.m_OnBike_Drive;
+        public InputAction @Break => m_Wrapper.m_OnBike_Break;
         public InputAction @Steer => m_Wrapper.m_OnBike_Steer;
         public InputAction @Interact => m_Wrapper.m_OnBike_Interact;
+        public InputAction @Pause => m_Wrapper.m_OnBike_Pause;
         public InputActionMap Get() { return m_Wrapper.m_OnBike; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -493,28 +258,40 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_OnBikeActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_OnBikeActionsCallbackInterfaces.Add(instance);
-            @Accelerate.started += instance.OnAccelerate;
-            @Accelerate.performed += instance.OnAccelerate;
-            @Accelerate.canceled += instance.OnAccelerate;
+            @Drive.started += instance.OnDrive;
+            @Drive.performed += instance.OnDrive;
+            @Drive.canceled += instance.OnDrive;
+            @Break.started += instance.OnBreak;
+            @Break.performed += instance.OnBreak;
+            @Break.canceled += instance.OnBreak;
             @Steer.started += instance.OnSteer;
             @Steer.performed += instance.OnSteer;
             @Steer.canceled += instance.OnSteer;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IOnBikeActions instance)
         {
-            @Accelerate.started -= instance.OnAccelerate;
-            @Accelerate.performed -= instance.OnAccelerate;
-            @Accelerate.canceled -= instance.OnAccelerate;
+            @Drive.started -= instance.OnDrive;
+            @Drive.performed -= instance.OnDrive;
+            @Drive.canceled -= instance.OnDrive;
+            @Break.started -= instance.OnBreak;
+            @Break.performed -= instance.OnBreak;
+            @Break.canceled -= instance.OnBreak;
             @Steer.started -= instance.OnSteer;
             @Steer.performed -= instance.OnSteer;
             @Steer.canceled -= instance.OnSteer;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IOnBikeActions instance)
@@ -532,87 +309,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public OnBikeActions @OnBike => new OnBikeActions(this);
-
-    // OnFoot
-    private readonly InputActionMap m_OnFoot;
-    private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
-    private readonly InputAction m_OnFoot_Walk;
-    private readonly InputAction m_OnFoot_Look;
-    private readonly InputAction m_OnFoot_SwitchToDrive;
-    private readonly InputAction m_OnFoot_Interact;
-    public struct OnFootActions
-    {
-        private @PlayerInputActions m_Wrapper;
-        public OnFootActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Walk => m_Wrapper.m_OnFoot_Walk;
-        public InputAction @Look => m_Wrapper.m_OnFoot_Look;
-        public InputAction @SwitchToDrive => m_Wrapper.m_OnFoot_SwitchToDrive;
-        public InputAction @Interact => m_Wrapper.m_OnFoot_Interact;
-        public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(OnFootActions set) { return set.Get(); }
-        public void AddCallbacks(IOnFootActions instance)
-        {
-            if (instance == null || m_Wrapper.m_OnFootActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_OnFootActionsCallbackInterfaces.Add(instance);
-            @Walk.started += instance.OnWalk;
-            @Walk.performed += instance.OnWalk;
-            @Walk.canceled += instance.OnWalk;
-            @Look.started += instance.OnLook;
-            @Look.performed += instance.OnLook;
-            @Look.canceled += instance.OnLook;
-            @SwitchToDrive.started += instance.OnSwitchToDrive;
-            @SwitchToDrive.performed += instance.OnSwitchToDrive;
-            @SwitchToDrive.canceled += instance.OnSwitchToDrive;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
-        }
-
-        private void UnregisterCallbacks(IOnFootActions instance)
-        {
-            @Walk.started -= instance.OnWalk;
-            @Walk.performed -= instance.OnWalk;
-            @Walk.canceled -= instance.OnWalk;
-            @Look.started -= instance.OnLook;
-            @Look.performed -= instance.OnLook;
-            @Look.canceled -= instance.OnLook;
-            @SwitchToDrive.started -= instance.OnSwitchToDrive;
-            @SwitchToDrive.performed -= instance.OnSwitchToDrive;
-            @SwitchToDrive.canceled -= instance.OnSwitchToDrive;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
-        }
-
-        public void RemoveCallbacks(IOnFootActions instance)
-        {
-            if (m_Wrapper.m_OnFootActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IOnFootActions instance)
-        {
-            foreach (var item in m_Wrapper.m_OnFootActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_OnFootActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public OnFootActions @OnFoot => new OnFootActions(this);
     public interface IOnBikeActions
     {
-        void OnAccelerate(InputAction.CallbackContext context);
+        void OnDrive(InputAction.CallbackContext context);
+        void OnBreak(InputAction.CallbackContext context);
         void OnSteer(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-    }
-    public interface IOnFootActions
-    {
-        void OnWalk(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
-        void OnSwitchToDrive(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

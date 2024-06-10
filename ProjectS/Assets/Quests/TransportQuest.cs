@@ -6,13 +6,16 @@ public class TransportQuest : QuestObjective{
     private Transform npcHolder;
     public override void OnStart(){
         base.OnStart();
-        _questnpc = GetComponent<PlayerController>().npc;
+        _questnpc = GameObject.Find("Player").GetComponent<PlayerController>().npc;
         _questnpc.UpdateQuestState();
         npcHolder = GameObject.Find("NPCholder").transform;
         _questnpc.transform.SetParent(npcHolder);
         _questnpc.transform.position = new Vector3(0,0,0);
     }
     private void OnTriggerEnter(Collider other){
+        if (!IsActive){
+            return;
+        }
         _newPosition = other.transform.position;
         CompleteObjective();
     }

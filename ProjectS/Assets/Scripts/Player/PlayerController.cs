@@ -13,13 +13,16 @@ public class PlayerController : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         
         //Acceleration
-        playerInputActions.OnBike.Accelerate.performed += ctx => playerMotor.forcePower = ctx.ReadValue<Vector2>().y;
-        playerInputActions.OnBike.Accelerate.canceled += ctx => playerMotor.forcePower = ctx.ReadValue<Vector2>().y;
-        //playerInputActions.OnBike.Accelerate.canceled += ctx => playerMotor.bikeRb.velocity = UnityEngine.Vector3.zero;
+        playerInputActions.OnBike.Drive.performed += ctx => playerMotor.driveInput = ctx.ReadValue<float>();
+        playerInputActions.OnBike.Drive.canceled += ctx => playerMotor.driveInput = ctx.ReadValue<float>();
+
+        playerInputActions.OnBike.Break.performed += ctx => playerMotor.breakInput = ctx.ReadValue<float>();
+        playerInputActions.OnBike.Break.canceled += ctx => playerMotor.breakInput = ctx.ReadValue<float>();
+        
         
         //Steering
-        playerInputActions.OnBike.Steer.performed += ctx => playerMotor.currentAngle = ctx.ReadValue<Vector2>().x;
-        playerInputActions.OnBike.Steer.canceled += ctx => playerMotor.currentAngle = ctx.ReadValue<Vector2>().x;
+        playerInputActions.OnBike.Steer.performed += ctx => playerMotor.steerInput = ctx.ReadValue<Vector2>().x;
+        playerInputActions.OnBike.Steer.canceled += ctx => playerMotor.steerInput = ctx.ReadValue<Vector2>().x;
         
         
         //Interactions
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    
+
     #region EnableAndDisable
     private void OnEnable()
     {

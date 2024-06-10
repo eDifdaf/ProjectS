@@ -53,7 +53,24 @@ MonoBehaviour:
   goodbyes: []
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
-  - quests: []
+  - quests:
+    - id: 1
+      Title: Haarige Angelegenheit
+      Description: "Ohnein, meine Crack-Perr\xFCcke"
+      rewardIsFish: 0
+      Reward: 7
+      objectives:
+      - {fileID: 0}
+    location: {fileID: 0}
+    timeOfDay: 03000000
+  - quests:
+    - id: 9
+      Title: Ab zur Arbeit
+      Description: 
+      rewardIsFish: 0
+      Reward: 7
+      objectives:
+      - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 03000000
   playerController: {fileID: 0}

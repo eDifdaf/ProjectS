@@ -13,9 +13,8 @@ public class Sender : MonoBehaviour
         if (isPlayerInRange && GameManager.Instance.DialogManager.IsEnabled == false) {
             
             //Code the sender should do
-            
-            //this is a placeholder
-            player.GetComponent<Currency>().SetCurrencyCount(10);
+            NPC npc = GetComponent<NPC>();
+            npc.PlayerInteract();
         }
     }
     

@@ -53,10 +53,24 @@ MonoBehaviour:
   goodbyes: []
   popup: {fileID: 2082216262661072622}
   locationQuestPool:
-  - quests: []
+  - quests:
+    - id: 5
+      Title: Spielzeit
+      Description: 
+      rewardIsFish: 0
+      Reward: 5
+      objectives:
+      - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 01000000
-  - quests: []
+  - quests:
+    - id: 12
+      Title: Genug  gespielt
+      Description: 
+      rewardIsFish: 0
+      Reward: 5
+      objectives:
+      - {fileID: 0}
     location: {fileID: 0}
     timeOfDay: 00000000
   playerController: {fileID: 0}
