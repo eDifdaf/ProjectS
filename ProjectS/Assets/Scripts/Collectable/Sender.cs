@@ -14,7 +14,12 @@ public class Sender : MonoBehaviour
             
             //Code the sender should do
             NPC npc = GetComponent<NPC>();
-            npc.PlayerInteract();
+            if(npc !=null){
+                npc.PlayerInteract();
+                return;
+            }
+            //if()
+            
         }
     }
     

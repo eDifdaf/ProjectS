@@ -73,12 +73,18 @@ public class SaveManager : MonoBehaviour
 
         playerTransform.transform.position = saveData.player.position;
         playerTransform.transform.rotation = saveData.player.rotation;
+        GameManager.Instance.Playermanager.player.GetComponent<Currency>().CurrentcyCount = saveData.player.money;
+        
         GameManager.Instance.QuestManager.AssignQuests(saveData.questsData.activeQuests);
         GameManager.Instance.Playermanager.Init();
         GameManager.Instance.Playermanager.LcompletedQuests = saveData.questsData.completedQuests;
         for (int i = 0; i < GameManager.Instance.Playermanager.LcompletedQuests.Count; i++){
             GameManager.Instance.Playermanager.DcompletedQuests.Add(i, GameManager.Instance.Playermanager.LcompletedQuests[i]);
         }
+
+        
+
+        
         
         
         
