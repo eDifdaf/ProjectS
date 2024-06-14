@@ -19,7 +19,7 @@ public class DayNightManager : MonoBehaviour{
     [SerializeField] private TMP_Text timeText;
     public event Action<TimeOfDay> OnTimeChanged;
     public TimeOfDay currentTime;
-    public bool isPaused;
+    public bool isPaused = false;
 
     public void PauseTime(){
         isPaused = true;
@@ -29,7 +29,7 @@ public class DayNightManager : MonoBehaviour{
         isPaused = false;
     }
 
-    private void Update(){
+    void Update(){
         if (isPaused){
             return;
         }

@@ -29,8 +29,7 @@ public class GameManager : MonoBehaviour{
         dialogManager.HideUI();
         //make coroutine so this waits a bit until everything is loaded
         
-        
-        saveManager.LoadGame();
+        //saveManager.LoadGame();
     }
 
     public void SetActiveNPC(NPC npc){
