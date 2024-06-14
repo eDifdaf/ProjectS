@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour{
 
     private void Start(){
         dialogManager.HideUI();
+        //make coroutine so this waits a bit until everything is loaded
+        
+        
         saveManager.LoadGame();
     }
 

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         //Interactions
         playerInputActions.OnBike.Interact.performed += ctx => npc.PlayerInteract();
         playerInputActions.OnBike.Interact.performed += ctx => sender.PlayerInteract();
+        
     }
 
 
